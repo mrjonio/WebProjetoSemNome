@@ -17,10 +17,10 @@ class CreatePedidosTable extends Migration
             $table->id();
             $table->boolean('ativo');
             $table->string('ids_pedidos');
-            $table->unsignedBigInteger('cliente_id');
-            $table->foreign('cliente_id')->references('id')->on('clientes');
-            $table->unsignedBigInteger('farmacia_id');
-            $table->foreign('farmacia_id')->references('id')->on('farmacia');
+            $table->string('cliente_id');
+            $table->foreign('cliente_id')->references('cpf')->on('clientes');
+            $table->string('farmacia_cnpj');
+            $table->foreign('farmacia_cnpj')->references('cnpj')->on('farmacias');
         });
     }
 
