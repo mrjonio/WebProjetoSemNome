@@ -32,6 +32,12 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public static $regras_validacao_criar = [
+        'nome' => 'required|max:255',
+        'email' => 'required|max:255|unique:users,email',
+        'password' => 'required|max:255|min:6',
+    ];
+
     /**
      * The attributes that should be cast to native types.
      *

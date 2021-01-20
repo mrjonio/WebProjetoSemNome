@@ -19,6 +19,10 @@ class Farmacia extends Model
         'cnpj',
     ];
 
+    public static $regras_validacao_criar = [
+        'cnpj' => 'required|numeric|unique:farmacias,cnpj',
+    ];
+
     public function user() {
         return $this->belongsTo('\App\Models\User', 'id', 'user_id');
     }

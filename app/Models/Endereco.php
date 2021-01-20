@@ -25,4 +25,9 @@ class Endereco extends Model
         'complemento',
     ];
 
+    public static $regras_validacao = [
+        'estado' => 'required',
+        'cidade' => 'required',
+    ];
+
 }
