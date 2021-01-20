@@ -26,4 +26,8 @@ class Cliente extends Model
     public function pedido(){
       return $this->hasMany('\App\Models\Pedido')
     }
+
+    public static $regras_validacao_criar = [
+        'cpf' => 'required|max:11|min:11',
+    ];
 }
