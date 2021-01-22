@@ -14,7 +14,11 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    Você tá logado :D
+                    <br>
+                    <a href="{{route('logout')}}"> Sair </a>
+                    <br>
+                    <a href="{{route('cliente.editarCliente')}}"> Ver Perfil (cliente) </a>
                 </div>
             </div>
         </div>
