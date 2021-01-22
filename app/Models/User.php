@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'tipo_perfil'
     ];
 
     /**
@@ -36,6 +37,7 @@ class User extends Authenticatable
         'nome' => 'required|max:255',
         'email' => 'required|max:255|unique:users,email',
         'password' => 'required|max:255|min:6',
+        'tipo_perfil' => 'required',
     ];
 
     /**
@@ -46,6 +48,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function cliente() {
+  		return $this->belongsTo('App\Models\Cliente', 'id', 'user_id');
+  	}
+
+    public function farmacia() {
+  		return $this->belongsTo('App\Models\Farmacia', 'id', 'user_id');
+  	}
 
     public function endereco() {
         return $this->hasOne('\App\Models\Endereco', 'id', 'endereco_id');

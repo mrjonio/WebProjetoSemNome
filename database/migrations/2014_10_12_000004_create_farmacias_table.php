@@ -14,7 +14,8 @@ class CreateFarmaciasTable extends Migration
     public function up()
     {
         Schema::create('farmacias', function (Blueprint $table) {
-            $table->string('cnpj')->primary();
+            $table->id();
+            $table->string('cnpj');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('vitrine_id');

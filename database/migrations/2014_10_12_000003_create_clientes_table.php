@@ -14,7 +14,8 @@ class CreateClientesTable extends Migration
     public function up()
     {
         Schema::create('clientes', function (Blueprint $table) {
-            $table->string('cpf')->primary();
+            $table->id();
+            $table->string('cpf');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('lista_compras')->nullable();
