@@ -30,6 +30,6 @@ class Cliente extends Model
     }
 
     public static $regras_validacao_criar = [
-        'cpf' => 'required|max:11|min:11',
+        'cpf' => 'required|max:11|min:11|unique:clientes,cpf',
     ];
 }

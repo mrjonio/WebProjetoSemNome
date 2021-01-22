@@ -37,7 +37,10 @@ class User extends Authenticatable
         'nome' => 'required|max:255',
         'email' => 'required|max:255|unique:users,email',
         'password' => 'required|max:255|min:6',
-        'tipo_perfil' => 'required',
+    ];
+
+    public static $regras_validacao_editar = [
+        'nome' => 'required|max:255',
     ];
 
     /**
