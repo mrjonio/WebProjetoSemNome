@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Model;
+use App\Models\Vitrine;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PostFactory extends Factory
+class VitrineFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = Vitrine::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,7 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            //
+          'array_id_produtos' => $faker->randomElements($array = array ('1','2','3','4','5','6','7','8','9','10'), $count = 3),
         ];
     }
 }
