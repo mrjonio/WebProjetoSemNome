@@ -22,10 +22,10 @@ class ProdutoFactory extends Factory
     public function definition()
     {
         return [
-          'nome' => $faker->name,
-          'descricao' => $faker->text,
-          'disponivel' => $faker->randomElement([True, False]),
-          'preco' => $faker->randomFloat($nbMaxDecimals = 3, $min = 0, $max = 100),
+          'nome' => $this->faker->name,
+          'descricao' => $this->faker->text,
+          'disponivel' => $this->faker->randomElement([true, false]),
+          'preco' => $this->faker->randomFloat($nbMaxDecimals = 3, $min = 0, $max = 100),
         ];
     }
 }

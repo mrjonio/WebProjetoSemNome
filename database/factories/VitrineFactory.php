@@ -22,7 +22,7 @@ class VitrineFactory extends Factory
     public function definition()
     {
         return [
-          'array_id_produtos' => $faker->randomElements($array = array ('1','2','3','4','5','6','7','8','9','10'), $count = 3),
+          'array_id_produtos' => $this->faker->numerify('#,#,#'),
         ];
     }
 }

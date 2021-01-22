@@ -6,10 +6,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
 class Cliente extends Model
 {
-
+  use HasFactory;
+  public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *
@@ -24,7 +26,7 @@ class Cliente extends Model
     }
 
     public function pedido(){
-      return $this->hasMany('\App\Models\Pedido')
+      return $this->hasMany('\App\Models\Pedido');
     }
 
     public static $regras_validacao_criar = [

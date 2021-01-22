@@ -1,15 +1,14 @@
-
 <?php
 
 namespace Database\Seeders;
 
+use App\Models\Endereco;
 use Illuminate\Database\Seeder;
-use App\models\Endereco;
 
 class EnderecoSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */

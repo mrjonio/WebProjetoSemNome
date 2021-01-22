@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\models\Vitrine;
+use App\Models\Vitrine;
 
 class VitrineSeeder extends Seeder
 {

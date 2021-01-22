@@ -1,10 +1,9 @@
-
 <?php
 
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\models\Farmacia;
+use App\Models\Farmacia;
 
 class FarmaciaSeeder extends Seeder
 {
@@ -15,6 +14,6 @@ class FarmaciaSeeder extends Seeder
      */
     public function run()
     {
-        Farmacia::factory()->count(10)->create();
+        Farmacia::factory()->count(5)->create();
     }
 }
