@@ -6,14 +6,14 @@ use App\Models\Endereco;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class UserFactory extends Factory
+class EnderecoFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = User::class;
+    protected $model = Endereco::class;
 
     /**
      * Define the model's default state.
