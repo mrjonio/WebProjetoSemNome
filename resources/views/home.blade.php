@@ -19,6 +19,8 @@
                     <a href="{{route('logout')}}"> Sair </a>
                     <br>
                     <a href="{{route('cliente.editarCliente')}}"> Ver Perfil (cliente) </a>
+                    <br>
+                    <a href="{{route('farmacia.editarFarmacia')}}"> Ver Perfil (farmacia) </a>
                 </div>
             </div>
         </div>

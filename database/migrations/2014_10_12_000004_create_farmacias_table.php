@@ -18,7 +18,7 @@ class CreateFarmaciasTable extends Migration
             $table->string('cnpj');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('vitrine_id');
+            $table->unsignedBigInteger('vitrine_id')->nullable();
             $table->foreign('vitrine_id')->references('id')->on('vitrines');
         });
     }

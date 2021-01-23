@@ -54,7 +54,7 @@
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('cliente.cadastrarCliente') }}">Cadastrar farmacia</a>
+                                    <a class="nav-link" href="{{ route('farmacia.cadastrarFarmacia') }}">Cadastrar farmacia</a>
                                 </li>
                             @endif
                         @else
