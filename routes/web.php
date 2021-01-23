@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\FarmaciaController;
 use App\Http\Controllers\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
@@ -37,5 +38,13 @@ Route::prefix('/cliente')->name('cliente')->namespace('Cliente')->group(function
 });
 
 Route::prefix('/farmacia')->name('farmacia')->namespace('Farmacia')->group(function(){
-
+    Route::prefix('/criar')->name('.cadastrarFarmacia')->group(function () {
+        Route::get('/', [FarmaciaController::class, 'cadastrarFarmacia']);
+        Route::post('/salvar', [FarmaciaController::class, 'salvarCadastroFarmacia'])->name('.salvar');
+    });
+  
+    Route::prefix('/editar')->name('.editarFarmacia')->group(function () {
+        Route::get('/', [FarmaciaController::class, 'editarFarmacia']);
+        Route::post('/salvar', [FarmaciaController::class, 'salvarEditarFarmacia'])->name('.salvar');
+    });
 });
