@@ -2,7 +2,7 @@
 
 ## Desenvolvido por
 
-[![Carlos A. A. J.](https://avatars.githubusercontent.com/u/39448893?s=64&u=3d8e579516b215482f7306833b38b3da1c4e04b5&v=4](https://github.com/mrjonio) |  [![Laisy C. F. S.](https://avatars1.githubusercontent.com/u/44072239?s=64&v=4)](https://github.com/laisy) |  
+[![Carlos A. A. J.](https://avatars1.githubusercontent.com/u/39448893?s=64&v=4](https://github.com/mrjonio) |  [![Laisy C. F. S.](https://avatars1.githubusercontent.com/u/44072239?s=64&v=4)](https://github.com/laisy) |  
 |-------------------|-------------------
 | **Carlos A. A. J.** | **Laisy C. F. S.** |  |
 | <a href="https://github.com/mrjonio/WebProjetoSemNome/commits?author=mrjonio" title="Commits de @mrjonio">💻 @mrjonio</a> | <a href="https://github.com/mrjonio/WebProjetoSemNome/commits?author=laisy" title="Commits de @laisy">💻 @laisy</a> |
