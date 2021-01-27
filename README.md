@@ -2,7 +2,12 @@
 
 ## Desenvolvido por
 
-![Carlos A. A. J.](https://github.com/mrjonio) | ![Laisy C. F. S.](https://github.com/laisy)
+[![Carlos A. A. J.](https://avatars.githubusercontent.com/u/39448893?s=64&v=4](https://github.com/mrjonio) |  [![Laisy C. F. S.](https://avatars1.githubusercontent.com/u/44072239?s=64&v=4)](https://github.com/laisy) |  
+|-------------------|-------------------
+| **Carlos A. A. J.** | **Laisy C. F. S.** |  |
+| <a href="https://github.com/mrjonio/WebProjetoSemNome/commits?author=mrjonio" title="Commits de @mrjonio">💻 @lohhans</a> | <a href="https://github.com/mrjonio/WebProjetoSemNome/commits?author=laisy" title="Commits de @laisy">💻 @laisy</a> |
+
+---
 
 ## Projeto de Desenvolvimento Web - 2020.4
 
@@ -19,12 +24,12 @@ sintomas, farmácias, nome de medicamento).
 
 ### Características do projeto
 
-# Atores
+### Atores
 
 	Clientes
 	Farmácias (empresas)
 	
-# Histórias de Usuários
+### Histórias de Usuários
 
 	US1 - Como ​ Cliente ​ gostaria de criar um perfil para que possa utilizar o sistema;
 	US2 - Como ​ Cliente ​ gostaria de pesquisar medicamentos pelo nome;
@@ -41,7 +46,7 @@ sintomas, farmácias, nome de medicamento).
 	US13 - Como ​ Farmácia ​ gostaria de acessar a lista de pedidos;US13 - Como ​ Farmácia ​ gostaria de editar meu perfil;
 	US14 - Como ​ Farmácia ​ gostaria de remover meu perfil;
 
-# Restrições e Requisitos não funcionais
+### Restrições e Requisitos não funcionais
 
 	RNF1 - ​ Cliente​ não pode criar lista de compras se não tiver logado;
 	RNF2 - ​ Cliente​ não pode comprar medicamento no sistema se não tiver logado;
