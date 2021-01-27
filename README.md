@@ -2,20 +2,20 @@
 
 ## Desenvolvido por
 
-	![Carlos A. A. J.](https://github.com/mrjonio) | ![Laisy C. F. S.](https://github.com/laisy)
+![Carlos A. A. J.](https://github.com/mrjonio) | ![Laisy C. F. S.](https://github.com/laisy)
 
 ## Projeto de Desenvolvimento Web - 2020.4
 
-	Implementação de um software para a disciplina de Desenvolvimento Web, no curso de Ciência da Computação na Universidade Federal do Agreste de Pernambuco - UFAPE. Estruturas desenvolvidas conforme orientação de Prof. Dr. Igor Medeiros Vanderlei.
+Implementação de um software para a disciplina de Desenvolvimento Web, no curso de Ciência da Computação na Universidade Federal do Agreste de Pernambuco - UFAPE. Estruturas desenvolvidas conforme orientação de Prof. Dr. Igor Medeiros Vanderlei.
 
 ## Sobre o projeto
 
-	O sistema permitirá fazer compras online, facilitando a vida diária de quem
-	precisa de medicação mas que não pode estar a todo momento se locomovendo.
-	Disponibilizando vários recursos que facilitarão a vida dessas pessoas, como: ter acesso
-	ao catálogo de medicamentos por categoria, ter acesso a mini bulas, fazer listas de
-	compras, efetuar a compra no próprio sistema e diferentes tipos de busca (ex. por
-	sintomas, farmácias, nome de medicamento).
+O sistema permitirá fazer compras online, facilitando a vida diária de quem
+precisa de medicação mas que não pode estar a todo momento se locomovendo.
+Disponibilizando vários recursos que facilitarão a vida dessas pessoas, como: ter acesso
+ao catálogo de medicamentos por categoria, ter acesso a mini bulas, fazer listas de
+compras, efetuar a compra no próprio sistema e diferentes tipos de busca (ex. por
+sintomas, farmácias, nome de medicamento).
 
 ### Características do projeto
 
