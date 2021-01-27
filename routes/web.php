@@ -62,4 +62,9 @@ Route::prefix('/farmacia')->name('farmacia')->namespace('Farmacia')->group(funct
           Route::get('/', [FarmaciaController::class, 'listarProdutos']);
       });
     });
+
+    Route::prefix('/remover')->name('.removerFarmacia')->group(function () {
+        Route::get('/', [FarmaciaController::class, 'removerFarmacia']);
+        Route::get('/remover', [FarmaciaController::class, 'salvarRemoverFarmacia'])->name('.remover');
+    });
 });

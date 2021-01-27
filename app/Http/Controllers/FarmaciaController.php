@@ -86,6 +86,17 @@ class FarmaciaController extends Controller
       }
     }
 
+    public function removerFarmacia() {
+      return view('Farmacia.removerFarmacia');
+    }
+
+    public function salvarRemoverFarmacia(){
+      $farmacia = Auth::user();
+      $farmacia->farmacia->delete();
+      $farmacia->delete();
+      return redirect()->route('login');
+    }
+
 
     public function salvarCadastroFarmacia(Request $request) {
         $entrada = $request->all();
