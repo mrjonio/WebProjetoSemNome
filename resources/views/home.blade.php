@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">Bem vindo</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,14 +13,13 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    Você tá logado :D
-                    <br>
-                    <a href="{{route('logout')}}"> Sair </a>
-                    <br>
-                    <a href="{{route('cliente.editarCliente')}}"> Ver Perfil (cliente) </a>
-                    <br>
-                    <a href="{{route('farmacia.editarFarmacia')}}"> Ver Perfil (farmacia) </a>
+                    @if($perfil == "Cliente")
+                      <a href="{{route('cliente.editarCliente')}}"> Ver Perfil</a>
+                    @else
+                      <a href="{{route('farmacia.editarFarmacia')}}"> Ver Perfil</a> <br>
+                      <a href="{{route('farmacia.produto.cadastrarProduto')}}"> Novo produto</a><br>
+                      <a href="{{route('farmacia.produto.listarProdutos')}}">Vitrine</a>
+                    @endif
                 </div>
             </div>
         </div>

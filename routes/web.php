@@ -52,4 +52,14 @@ Route::prefix('/farmacia')->name('farmacia')->namespace('Farmacia')->group(funct
         Route::get('/', [FarmaciaController::class, 'editarFarmacia']);
         Route::post('/salvar', [FarmaciaController::class, 'salvarEditarFarmacia'])->name('.salvar');
     });
+
+    Route::prefix('/produto')->name('.produto')->group(function () {
+      Route::prefix('/criar')->name('.cadastrarProduto')->group(function () {
+          Route::get('/', [FarmaciaController::class, 'cadastrarProduto']);
+          Route::post('/salvar', [FarmaciaController::class, 'salvarCadastrarProduto'])->name('.salvar');
+      });
+      Route::prefix('/ver')->name('.listarProdutos')->group(function () {
+          Route::get('/', [FarmaciaController::class, 'listarProdutos']);
+      });
+    });
 });

@@ -27,7 +27,6 @@ class Produto extends Model
     public static $regras_validacao_criar = [
         'nome' => 'required|max:255',
         'descricao' => 'required',
-        'disponivel' => 'required',
         'preco' => 'required|numeric',
     ];
 

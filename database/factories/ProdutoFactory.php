@@ -26,6 +26,7 @@ class ProdutoFactory extends Factory
           'descricao' => $this->faker->text,
           'disponivel' => $this->faker->randomElement([true, false]),
           'preco' => $this->faker->randomFloat($nbMaxDecimals = 3, $min = 0, $max = 100),
+          'vitrine_id' => $this->faker->unique()->numberBetween(1, 11),
         ];
     }
 }

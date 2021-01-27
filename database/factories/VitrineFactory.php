@@ -22,7 +22,6 @@ class VitrineFactory extends Factory
     public function definition()
     {
         return [
-          'array_id_produtos' => $this->faker->numerify('#,#,#'),
         ];
     }
 }

@@ -32,4 +32,8 @@ class Farmacia extends Model
     public function pedido(){
       return $this->hasMany('\App\Models\Pedido');
     }
+
+    public function vitrine() {
+        return $this->hasOne('\App\Models\Vitrine');
+    }
 }

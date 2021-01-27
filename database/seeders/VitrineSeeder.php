@@ -14,6 +14,6 @@ class VitrineSeeder extends Seeder
      */
     public function run()
     {
-        Vitrine::factory()->count(10)->create();
+        Vitrine::factory()->count(11)->create();
     }
 }

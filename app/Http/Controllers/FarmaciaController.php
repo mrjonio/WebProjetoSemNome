@@ -8,7 +8,9 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Farmacia;
 use App\Models\User;
+use App\Models\Vitrine;
 use App\Models\Endereco;
+use App\Models\Produto;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -22,6 +24,57 @@ class FarmaciaController extends Controller
 
     public function cadastrarFarmacia() {
       return view('Farmacia.cadastroFarmacia');
+    }
+
+    public function cadastrarProduto(){
+      $farmacia = Auth::user()->farmacia;
+      if(!$farmacia->vitrine){
+        $vitrine = new Vitrine;
+        $vitrine->farmacia_id = $farmacia->id;
+        $vitrine->save();
+
+      }
+      return view('Farmacia.cadastroProduto');
+    }
+
+    public function listarProdutos(){
+      $farmacia = Auth::user()->farmacia;
+      if(!$farmacia->vitrine){
+        return redirect()->route('farmacia.produto.cadastrarProduto');
+      }
+      return view('Farmacia.verVitrine', [
+        'produtos' => $farmacia->vitrine->produto
+      ]);
+    }
+
+    public function salvarCadastrarProduto(Request $request) {
+        $entrada = $request->all();
+
+        $messages = [
+            'required' => 'O campo :attribute é obrigatório.',
+            'min' => 'O campo :attribute é deve ter no minimo :min caracteres.',
+            'max' => 'O campo :attribute é deve ter no máximo :max caracteres.',
+            'password.required' => 'A senha é obrigatória.',
+            'unique' => 'O :attribute já existe',
+        ];
+
+
+        $validator_produto = Validator::make($entrada, Produto::$regras_validacao_criar, $messages);
+        if ($validator_produto->fails()) {
+            return redirect()->back()
+                             ->withErrors($validator_produto)
+                             ->withInput();
+        }
+
+        $farmacia = Auth::user()->farmacia;
+
+        $produto = new Produto;
+        $produto->fill($entrada);
+        $produto->disponivel = true;
+        $produto->vitrine_id = $farmacia->vitrine->id;
+        $produto->save();
+
+        return redirect()->route('home');
     }
 
     public function editarFarmacia() {

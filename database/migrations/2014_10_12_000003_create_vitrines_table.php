@@ -15,7 +15,8 @@ class CreateVitrinesTable extends Migration
     {
         Schema::create('vitrines', function (Blueprint $table) {
             $table->id();
-            $table->string('array_id_produtos');
+            $table->unsignedBigInteger('farmacia_id');
+            $table->foreign('farmacia_id')->references('id')->on('farmacias');
         });
     }
 
