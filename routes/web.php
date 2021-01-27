@@ -52,4 +52,9 @@ Route::prefix('/farmacia')->name('farmacia')->namespace('Farmacia')->group(funct
         Route::get('/', [FarmaciaController::class, 'editarFarmacia']);
         Route::post('/salvar', [FarmaciaController::class, 'salvarEditarFarmacia'])->name('.salvar');
     });
+
+    Route::prefix('/remover')->name('.removerFarmacia')->group(function () {
+        Route::get('/', [FarmaciaController::class, 'removerFarmacia']);
+        Route::get('/remover', [FarmaciaController::class, 'salvarRemoverFarmacia'])->name('.remover');
+    });
 });
