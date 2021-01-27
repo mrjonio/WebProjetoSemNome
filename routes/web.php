@@ -35,6 +35,11 @@ Route::prefix('/cliente')->name('cliente')->namespace('Cliente')->group(function
       Route::post('/salvar', [ClienteController::class, 'salvarEditarCliente'])->name('.salvar');
   });
 
+  Route::prefix('/remover')->name('.removerCliente')->group(function () {
+      Route::get('/', [ClienteController::class, 'removerCliente']);
+      Route::get('/remover', [ClienteController::class, 'salvarRemoverCliente'])->name('.remover');
+  });
+
 });
 
 Route::prefix('/farmacia')->name('farmacia')->namespace('Farmacia')->group(function(){
@@ -42,7 +47,7 @@ Route::prefix('/farmacia')->name('farmacia')->namespace('Farmacia')->group(funct
         Route::get('/', [FarmaciaController::class, 'cadastrarFarmacia']);
         Route::post('/salvar', [FarmaciaController::class, 'salvarCadastroFarmacia'])->name('.salvar');
     });
-  
+
     Route::prefix('/editar')->name('.editarFarmacia')->group(function () {
         Route::get('/', [FarmaciaController::class, 'editarFarmacia']);
         Route::post('/salvar', [FarmaciaController::class, 'salvarEditarFarmacia'])->name('.salvar');

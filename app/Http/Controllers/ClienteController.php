@@ -24,6 +24,17 @@ class ClienteController extends Controller
       return view('Cliente.cadastroCliente');
     }
 
+    public function removerCliente() {
+      return view('Cliente.removerCliente');
+    }
+
+    public function salvarRemoverCliente(){
+      $cliente = Auth::user();
+      $cliente->cliente->delete();
+      $cliente->delete();
+      return redirect()->route('login');
+    }
+
     public function editarCliente() {
       $cliente = User::find(Auth::id());
       if($cliente->tipo_perfil == "Cliente"){

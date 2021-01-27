@@ -53,11 +53,14 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="col-md-8">
             <div class="card">
               <div class="row">
-                  <div class="col-md-10">
+                  <div class="col-md-8">
                       <h1 class="marker">Minhas informações</h1>
                   </div>
                   <div class="col-md-2">
                       <button class="btn edit-bt" id="enable-bt">Editar</button>
+                  </div>
+                  <div class="col-md-2">
+                      <a class="btn edit-bt" href="{{route('cliente.removerCliente')}}">Excluir perfil</a>
                   </div>
                   </div>
                 @if ($errors->any())
