@@ -59,6 +59,9 @@ document.addEventListener('DOMContentLoaded', function () {
                   <div class="col-md-2">
                       <button class="btn edit-bt" id="enable-bt">Editar</button>
                   </div>
+                  <div class="col-md-2">
+                      <a class="btn edit-bt" href="{{route('farmacia.removerFarmacia')}}">Excluir perfil</a>
+                  </div>
                   </div>
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -75,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <input type="hidden" name="id" value="{{ $user->id }}">
                         <div class="form-group row">
                           <div class="col-md-12">
-                            <h4><center>Informações Pessoais</center></h4>
+                            <h4><center>Informações</center></h4>
                           </div>
                         </div>
                         <div class="form-group row">

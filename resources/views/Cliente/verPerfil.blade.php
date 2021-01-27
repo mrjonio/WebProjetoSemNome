@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="col-md-8">
             <div class="card">
               <div class="row">
-                  <div class="col-md-8">
+                  <div class="col-md-10">
                       <h1 class="marker">Minhas informações</h1>
                   </div>
                   <div class="col-md-2">
