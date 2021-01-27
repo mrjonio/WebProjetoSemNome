@@ -1,62 +1,55 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Projeto WEB - PharmaSenior
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Desenvolvido por
 
-## About Laravel
+[![Carlos A. A. J.](https://avatars1.githubusercontent.com/u/39448893?s=64&v=4)](https://github.com/mrjonio) |  [![Laisy C. F. S.](https://avatars1.githubusercontent.com/u/44072239?s=64&v=4)](https://github.com/laisy) |  
+|-------------------|-------------------
+| **Carlos A. A. J.** | **Laisy C. F. S.** |  |
+| <a href="https://github.com/mrjonio/WebProjetoSemNome/commits?author=mrjonio" title="Commits de @mrjonio">💻 @mrjonio</a> | <a href="https://github.com/mrjonio/WebProjetoSemNome/commits?author=laisy" title="Commits de @laisy">💻 @laisy</a> |
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Projeto de Desenvolvimento Web - 2020.4
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Implementação de um software para a disciplina de Desenvolvimento Web, no curso de Ciência da Computação na Universidade Federal do Agreste de Pernambuco - UFAPE. Estruturas desenvolvidas conforme orientação de Prof. Dr. Igor Medeiros Vanderlei.
 
-## Learning Laravel
+## Sobre o projeto
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+O sistema permitirá fazer compras online, facilitando a vida diária de quem
+precisa de medicação mas que não pode estar a todo momento se locomovendo.
+Disponibilizando vários recursos que facilitarão a vida dessas pessoas, como: ter acesso
+ao catálogo de medicamentos por categoria, ter acesso a mini bulas, fazer listas de
+compras, efetuar a compra no próprio sistema e diferentes tipos de busca (ex. por
+sintomas, farmácias, nome de medicamento).
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Características do projeto
 
-## Laravel Sponsors
+### Atores
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+	Clientes
+	Farmácias (empresas)
+	
+### Histórias de Usuários
 
-### Premium Partners
+	US1 - Como ​ Cliente ​ gostaria de criar um perfil para que possa utilizar o sistema;
+	US2 - Como ​ Cliente ​ gostaria de pesquisar medicamentos pelo nome;
+	US3 - Como ​ Cliente ​ gostaria de buscar pelas farmácias de minha preferência;
+	US4 - Como ​ Cliente ​ gostaria de comprar medicamento pelo sistema;
+	US5 - Como ​ Cliente ​ gostaria de fazer lista de compras;
+	US6 - Como ​ Cliente ​ gostaria de visualizar mini bulas dos medicamentos;
+	US7 - Como ​ Cliente ​ gostaria de editar meu perfil;
+	US8 - Como ​ Cliente ​ gostaria de remover meu perfil;
+	US9 - Como ​ Farmácia ​ gostaria de criar um perfil para que eu possa usar o sistema;
+	US10 - Como ​ Farmácia ​ gostaria de publicar meus produtos;
+	US11 - Como ​ Farmácia ​ gostaria de vender meus produtos;
+	US12 - Como ​ Farmácia ​ gostaria de retirar produtos do mural;
+	US13 - Como ​ Farmácia ​ gostaria de acessar a lista de pedidos;US13 - Como ​ Farmácia ​ gostaria de editar meu perfil;
+	US14 - Como ​ Farmácia ​ gostaria de remover meu perfil;
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+### Restrições e Requisitos não funcionais
 
-## Contributing
+	RNF1 - ​ Cliente​ não pode criar lista de compras se não tiver logado;
+	RNF2 - ​ Cliente​ não pode comprar medicamento no sistema se não tiver logado;
+	RNF3 - ​ Farmácia​ não pode publicar produto se não tiver logado;
+	RNF4 - ​ Farmácia​ não pode acessar lista de pedidos se não tiver logado;
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
