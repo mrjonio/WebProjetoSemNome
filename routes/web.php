@@ -65,6 +65,10 @@ Route::prefix('/farmacia')->name('farmacia')->namespace('Farmacia')->group(funct
         Route::get('/{id}', [FarmaciaController::class, 'editarProduto']);
         Route::post('/salvar', [FarmaciaController::class, 'salvarEditarProduto'])->name('.salvar');
         });
+        Route::prefix('/mudar')->name('.editarDisponibilidadeProd')->group(function () {
+            Route::get('/{id}', [FarmaciaController::class, 'editarDisponibilidadeProd']);
+            });
+
     });
 
     Route::prefix('/remover')->name('.removerFarmacia')->group(function () {

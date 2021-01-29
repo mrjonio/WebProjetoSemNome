@@ -26,7 +26,8 @@
                                     <td class="nome_reuniao basic-space">{{$prod->preco}}</td>
                                     <td id="coluna-images" class="basic-space"> 
                                      <div class="col-md-2">
-                                        <a class="btn edit-bt" href="{{route('farmacia.editarProduto', ['id' => $prod->id])}}">Editar</a>
+                                        <a class="btn edit-bt" href="{{route('farmacia.produto.editarProduto', ['id' => $prod->id])}}">Editar</a>
+                                        <a class="btn edit-bt" href="{{route('farmacia.produto.editarDisponibilidadeProd', ['id' => $prod->id])}}">Mudar Disponibilidade</a>
                                      </div>
                                     
                                     </td>
