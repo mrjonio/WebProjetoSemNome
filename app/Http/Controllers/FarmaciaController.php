@@ -40,6 +40,7 @@ class FarmaciaController extends Controller
     }
 
     public function listarProdutos(){
+      $this->authorize('farmacia', User::class);
       $farmacia = Auth::user()->farmacia;
       if(!$farmacia->vitrine){
         return redirect()->route('farmacia.produto.cadastrarProduto');
@@ -81,6 +82,7 @@ class FarmaciaController extends Controller
     }
 
     public function editarProduto($id) {
+      $this->authorize('farmacia', User::class);
       $produto = Produto::find($id);
       return view('Farmacia.editarProduto', ['produto' => $produto]);
     }
@@ -241,6 +243,7 @@ class FarmaciaController extends Controller
   }
 
   public function editarDisponibilidadeProd($id){
+    $this->authorize('farmacia', User::class);
     $produto = Produto::find($id);
     if($produto->disponivel){
       $produto->disponivel=false;
