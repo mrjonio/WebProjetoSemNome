@@ -25,10 +25,12 @@ class ClienteController extends Controller
     }
 
     public function removerCliente() {
+      $this->authorize('cliente', User::class);
       return view('Cliente.removerCliente');
     }
 
     public function salvarRemoverCliente(){
+      $this->authorize('cliente', User::class);
       $cliente = Auth::user();
       $cliente->cliente->delete();
       $cliente->delete();
@@ -36,6 +38,7 @@ class ClienteController extends Controller
     }
 
     public function editarCliente() {
+      $this->authorize('cliente', User::class);
       $cliente = User::find(Auth::id());
       if($cliente->tipo_perfil == "Cliente"){
         return view('Cliente.verPerfil', ['user' => $cliente]);
@@ -46,6 +49,7 @@ class ClienteController extends Controller
 
 
     public function salvarCadastroCliente(Request $request) {
+        $this->authorize('cliente', User::class);
         $entrada = $request->all();
 
         $messages = [
@@ -107,6 +111,7 @@ class ClienteController extends Controller
     }
 
     public function salvarEditarCliente(Request $request) {
+        $this->authorize('cliente', User::class);
         $entrada = $request->all();
 
         $user = User::find($entrada['id']);

@@ -23,10 +23,12 @@ class FarmaciaController extends Controller
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function cadastrarFarmacia() {
+      $this->authorize('farmacia', User::class);
       return view('Farmacia.cadastroFarmacia');
     }
 
     public function cadastrarProduto(){
+      $this->authorize('farmacia', User::class);
       $farmacia = Auth::user()->farmacia;
       if(!$farmacia->vitrine){
         $vitrine = new Vitrine;
@@ -48,6 +50,7 @@ class FarmaciaController extends Controller
     }
 
     public function salvarCadastrarProduto(Request $request) {
+        $this->authorize('farmacia', User::class);
         $entrada = $request->all();
 
         $messages = [
@@ -76,12 +79,13 @@ class FarmaciaController extends Controller
 
         return redirect()->route('home');
     }
-    
+
     public function editarProduto($id) {
       $produto = Produto::find($id);
     }
 
     public function editarFarmacia() {
+      $this->authorize('farmacia', User::class);
       $farmacia = User::find(Auth::id());
       if($farmacia->tipo_perfil == "Farmacia"){
         return view('Farmacia.verPerfil', ['user' => $farmacia]);
@@ -91,10 +95,12 @@ class FarmaciaController extends Controller
     }
 
     public function removerFarmacia() {
+      $this->authorize('farmacia', User::class);
       return view('Farmacia.removerFarmacia');
     }
 
     public function salvarRemoverFarmacia(){
+      $this->authorize('farmacia', User::class);
       $farmacia = Auth::user();
       $farmacia->farmacia->delete();
       $farmacia->delete();
@@ -103,6 +109,7 @@ class FarmaciaController extends Controller
 
 
     public function salvarCadastroFarmacia(Request $request) {
+        $this->authorize('farmacia', User::class);
         $entrada = $request->all();
 
         $messages = [
@@ -164,6 +171,7 @@ class FarmaciaController extends Controller
     }
 
     public function salvarEditarFarmacia(Request $request) {
+        $this->authorize('farmacia', User::class);
         $entrada = $request->all();
 
         $user = User::find($entrada['id']);
@@ -206,6 +214,7 @@ class FarmaciaController extends Controller
     }
 
     public function salvarEditarProduto(Request $request) {
+      $this->authorize('farmacia', User::class);
       $entrada = $request->all();
 
       $produto = Produto::find($entrada['id']);
