@@ -31,13 +31,13 @@ Route::prefix('/cliente')->name('cliente')->namespace('Cliente')->group(function
   });
 
   Route::prefix('/editar')->name('.editarCliente')->group(function () {
-      Route::get('/', [ClienteController::class, 'editarCliente']);
-      Route::post('/salvar', [ClienteController::class, 'salvarEditarCliente'])->name('.salvar');
+      Route::get('/', [ClienteController::class, 'editarCliente'])->middleware('auth')->middleware('auth');
+      Route::post('/salvar', [ClienteController::class, 'salvarEditarCliente'])->name('.salvar')->middleware('auth');
   });
 
   Route::prefix('/remover')->name('.removerCliente')->group(function () {
-      Route::get('/', [ClienteController::class, 'removerCliente']);
-      Route::get('/remover', [ClienteController::class, 'salvarRemoverCliente'])->name('.remover');
+      Route::get('/', [ClienteController::class, 'removerCliente'])->middleware('auth');
+      Route::get('/remover', [ClienteController::class, 'salvarRemoverCliente'])->name('.remover')->middleware('auth');
   });
 
 });
@@ -49,30 +49,30 @@ Route::prefix('/farmacia')->name('farmacia')->namespace('Farmacia')->group(funct
     });
 
     Route::prefix('/editar')->name('.editarFarmacia')->group(function () {
-        Route::get('/', [FarmaciaController::class, 'editarFarmacia']);
-        Route::post('/salvar', [FarmaciaController::class, 'salvarEditarFarmacia'])->name('.salvar');
+        Route::get('/', [FarmaciaController::class, 'editarFarmacia'])->middleware('auth');
+        Route::post('/salvar', [FarmaciaController::class, 'salvarEditarFarmacia'])->name('.salvar')->middleware('auth');
     });
 
     Route::prefix('/produto')->name('.produto')->group(function () {
       Route::prefix('/criar')->name('.cadastrarProduto')->group(function () {
-          Route::get('/', [FarmaciaController::class, 'cadastrarProduto']);
-          Route::post('/salvar', [FarmaciaController::class, 'salvarCadastrarProduto'])->name('.salvar');
+          Route::get('/', [FarmaciaController::class, 'cadastrarProduto'])->middleware('auth');
+          Route::post('/salvar', [FarmaciaController::class, 'salvarCadastrarProduto'])->name('.salvar')->middleware('auth');
       });
       Route::prefix('/ver')->name('.listarProdutos')->group(function () {
-          Route::get('/', [FarmaciaController::class, 'listarProdutos']);
+          Route::get('/', [FarmaciaController::class, 'listarProdutos'])->middleware('auth');
       });
       Route::prefix('/editar')->name('.editarProduto')->group(function () {
-        Route::get('/{id}', [FarmaciaController::class, 'editarProduto']);
-        Route::post('/salvar', [FarmaciaController::class, 'salvarEditarProduto'])->name('.salvar');
+        Route::get('/{id}', [FarmaciaController::class, 'editarProduto'])->middleware('auth');
+        Route::post('/salvar', [FarmaciaController::class, 'salvarEditarProduto'])->name('.salvar')->middleware('auth');
         });
         Route::prefix('/mudar')->name('.editarDisponibilidadeProd')->group(function () {
-            Route::get('/{id}', [FarmaciaController::class, 'editarDisponibilidadeProd']);
+            Route::get('/{id}', [FarmaciaController::class, 'editarDisponibilidadeProd'])->middleware('auth');
             });
 
     });
 
     Route::prefix('/remover')->name('.removerFarmacia')->group(function () {
-        Route::get('/', [FarmaciaController::class, 'removerFarmacia']);
-        Route::get('/remover', [FarmaciaController::class, 'salvarRemoverFarmacia'])->name('.remover');
+        Route::get('/', [FarmaciaController::class, 'removerFarmacia'])->middleware('auth');
+        Route::get('/remover', [FarmaciaController::class, 'salvarRemoverFarmacia'])->name('.remover')->middleware('auth');
     });
 });
