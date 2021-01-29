@@ -76,6 +76,10 @@ class FarmaciaController extends Controller
 
         return redirect()->route('home');
     }
+    
+    public function editarProduto($id) {
+      $produto = Produto::find($id);
+    }
 
     public function editarFarmacia() {
       $farmacia = User::find(Auth::id());
@@ -165,10 +169,11 @@ class FarmaciaController extends Controller
         $user = User::find($entrada['id']);
 
         $messages = [
-            'required' => 'O campo :attribute é obrigatório.',
-            'min' => 'O campo :attribute é deve ter no minimo :min caracteres.',
-            'max' => 'O campo :attribute é deve ter no máximo :max caracteres.',
-            'unique' => 'O :attribute já existe',
+          'required' => 'O campo :attribute é obrigatório.',
+          'min' => 'O campo :attribute é deve ter no minimo :min caracteres.',
+          'max' => 'O campo :attribute é deve ter no máximo :max caracteres.',
+          'password.required' => 'A senha é obrigatória.',
+          'unique' => 'O :attribute já existe',
         ];
 
 
@@ -199,4 +204,29 @@ class FarmaciaController extends Controller
 
         return redirect()->back();
     }
+
+    public function salvarEditarProduto(Request $request) {
+      $entrada = $request->all();
+
+      $produto = Produto::find($entrada['id']);
+
+      $messages = [
+          'required' => 'O campo :attribute é obrigatório.',
+          'min' => 'O campo :attribute é deve ter no minimo :min caracteres.',
+          'max' => 'O campo :attribute é deve ter no máximo :max caracteres.',
+          'unique' => 'O :attribute já existe',
+      ];
+
+      $validator_produto = Validator::make($entrada, Produto::$regras_validacao, $messages);
+        if ($validator_produto->fails()) {
+            return redirect()->back()
+                             ->withErrors($validator_produto)
+                             ->withInput();
+      }
+
+      $produto->fill($entrada);
+      $produto->save();
+
+      return redirect()->back();
+  }
 }

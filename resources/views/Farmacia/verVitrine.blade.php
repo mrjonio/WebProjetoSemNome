@@ -24,8 +24,12 @@
                                     <td class="nome_reuniao basic-space">{{$prod->nome}}</td>
                                     <td class="nome_reuniao basic-space">{{$prod->disponivel}}</td>
                                     <td class="nome_reuniao basic-space">{{$prod->preco}}</td>
-                                    <td id="coluna-images" class="basic-space">
-
+                                    <td id="coluna-images" class="basic-space"> 
+                                     <div class="col-md-2">
+                                        <a class="btn edit-bt" href="{{route('farmacia.editarProduto', ['id' => $prod->id])}}">Editar</a>
+                                     </div>
+                                    
+                                    </td>
                                     </td>
                                 </tr>
                                 @endforeach
