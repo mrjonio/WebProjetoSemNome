@@ -82,6 +82,7 @@ class FarmaciaController extends Controller
 
     public function editarProduto($id) {
       $produto = Produto::find($id);
+      return view('Farmacia.editarProduto', ['produto' => $produto]);
     }
 
     public function editarFarmacia() {
@@ -226,7 +227,7 @@ class FarmaciaController extends Controller
           'unique' => 'O :attribute já existe',
       ];
 
-      $validator_produto = Validator::make($entrada, Produto::$regras_validacao, $messages);
+      $validator_produto = Validator::make($entrada, Produto::$regras_validacao_criar, $messages);
         if ($validator_produto->fails()) {
             return redirect()->back()
                              ->withErrors($validator_produto)
@@ -236,6 +237,17 @@ class FarmaciaController extends Controller
       $produto->fill($entrada);
       $produto->save();
 
-      return redirect()->back();
+      return redirect()->route('farmacia.produto.listarProdutos');
+  }
+
+  public function editarDisponibilidadeProd($id){
+    $produto = Produto::find($id);
+    if($produto->disponivel){
+      $produto->disponivel=false;
+    }else{
+      $produto->disponivel=true;
+    }
+    $produto->save();
+    return redirect()->back();
   }
 }
