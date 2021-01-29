@@ -30,4 +30,11 @@ class Produto extends Model
         'preco' => 'required|numeric',
     ];
 
+    public function isDisponivel(){
+      if($this->disponivel){
+        return "Disponivel";
+      }
+      return "Indisponivel";
+    }
+
 }
