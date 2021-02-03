@@ -15,6 +15,7 @@
                     @endif
                     @if($perfil == "Cliente")
                       <a href="{{route('cliente.editarCliente')}}"> Ver Perfil</a>
+                      <a href="{{route('cliente.buscar')}}">Fazer busca</a>
                     @else
                       <a href="{{route('farmacia.editarFarmacia')}}"> Ver Perfil</a> <br>
                       <a href="{{route('farmacia.produto.cadastrarProduto')}}"> Novo produto</a><br>

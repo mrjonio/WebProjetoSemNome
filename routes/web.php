@@ -40,6 +40,10 @@ Route::prefix('/cliente')->name('cliente')->namespace('Cliente')->group(function
       Route::get('/remover', [ClienteController::class, 'salvarRemoverCliente'])->name('.remover')->middleware('auth');
   });
 
+  Route::prefix('/buscar')->name('.buscar')->group(function () {
+      Route::get('/', [ClienteController::class, 'buscaNome'])->middleware('auth');
+  });
+
 });
 
 Route::prefix('/farmacia')->name('farmacia')->namespace('Farmacia')->group(function(){

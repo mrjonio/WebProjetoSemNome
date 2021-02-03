@@ -9,6 +9,8 @@ use Illuminate\Routing\Controller as BaseController;
 use App\Models\Cliente;
 use App\Models\User;
 use App\Models\Endereco;
+use App\Models\Farmacia;
+use App\Models\Produto;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -47,9 +49,24 @@ class ClienteController extends Controller
       }
     }
 
+    public function buscaNome(){
+      $endlog = Auth::user()->endereco;
+      $endereco = Endereco::where('estado', '=', $endlog->estado, 'and')->where('cidade', '=', $endlog->cidade)->get();
+      $farmacias =  array();
+      foreach ($endereco as $end) {
+        $far = User::where('endereco_id', '=', $end->id, 'and')->where('tipo_perfil', '=', 'Farmacia')->first();
+        if($far){
+          $farmacias[] = $far->farmacia;
+        }
+      }
+      return view('Cliente.buscarString', [
+        'farmacias' => $farmacias,
+      ]);
+
+    }
+
 
     public function salvarCadastroCliente(Request $request) {
-        $this->authorize('cliente', User::class);
         $entrada = $request->all();
 
         $messages = [
