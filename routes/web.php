@@ -72,7 +72,11 @@ Route::prefix('/farmacia')->name('farmacia')->namespace('Farmacia')->group(funct
         Route::prefix('/mudar')->name('.editarDisponibilidadeProd')->group(function () {
             Route::get('/{id}', [FarmaciaController::class, 'editarDisponibilidadeProd'])->middleware('auth');
             });
-
+        
+        Route::prefix('/remover')->name('.removerProduto')->group(function () {
+            Route::get('/{id}', [FarmaciaController::class, 'removerProduto'])->middleware('auth');
+            Route::get('/remover/{id}', [FarmaciaController::class, 'salvarRemoverProduto'])->name('.remover')->middleware('auth');
+        });
     });
 
     Route::prefix('/remover')->name('.removerFarmacia')->group(function () {
