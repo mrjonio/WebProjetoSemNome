@@ -23,7 +23,6 @@ class FarmaciaController extends Controller
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function cadastrarFarmacia() {
-      $this->authorize('farmacia', User::class);
       return view('Farmacia.cadastroFarmacia');
     }
 
@@ -72,10 +71,15 @@ class FarmaciaController extends Controller
 
         $farmacia = Auth::user()->farmacia;
 
+
         $produto = new Produto;
         $produto->fill($entrada);
         $produto->disponivel = true;
         $produto->vitrine_id = $farmacia->vitrine->id;
+        if($request->hasFile('imagemProd')){
+            $file = $request->allFiles()['imagemProd'];
+            $produto->imagem = $file->store('public/produtos/' . $farmacia->id . '/' . $farmacia->vitrine_id);
+        }
         $produto->save();
 
         return redirect()->route('home');
@@ -112,7 +116,6 @@ class FarmaciaController extends Controller
 
 
     public function salvarCadastroFarmacia(Request $request) {
-        $this->authorize('farmacia', User::class);
         $entrada = $request->all();
 
         $messages = [

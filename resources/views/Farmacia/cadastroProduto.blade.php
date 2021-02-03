@@ -1,4 +1,53 @@
 @extends('layouts.app')
+<script>
+function removeImage() {
+    imagemProd.value = '';
+    prvata.innerHTML = '';
+    lbfoto.innerHTML = 'Escolha outra Imagem';
+}
+
+
+function previewImagem() {
+
+    var atapv = document.querySelector('#prvata');
+
+    if (imagemProd.files) {
+      atapv.innerHTML = '';
+     var a = readAndPreviewImage(imagemProd.files[0]);
+    }
+    function readAndPreviewImage(file) {
+        // Make sure `file.name` matches our extensions criteria
+        if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
+            return alert(file.name + " is not an image");
+        } // else...
+        var read = new FileReader();
+
+        read.addEventListener("load", function() {
+          document.getElementById('lbfoto').innerHTML =  file.name;
+          var image = new Image();
+          image.className = 'bt-spec';
+          image.title  = file.name;
+          image.src    = this.result;
+          image.style.width = "80%";
+          image.style.height = "auto";
+          image.style.marginLeft = "90px";
+          image.style.marginBottom = "50px";
+          image.onclick = function(){removeImage();};
+          atapv.appendChild(image);
+        });
+        read.readAsDataURL(file);
+
+    }
+
+}
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('#imagemProd').addEventListener("change", previewImagem);
+
+});
+
+</script>
 
 @section('content')
 <div class="container">
@@ -16,7 +65,7 @@
                 </div>
                 @endif
                 <div class="card-body">
-                    <form method="post" action="{{ route('farmacia.produto.cadastrarProduto.salvar') }}">
+                    <form method="post" action="{{ route('farmacia.produto.cadastrarProduto.salvar') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -35,7 +84,15 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                              <input style="margin-top: -100px" type="file" name='imagemProd' class="custom-file-input input-stl" id="imagemProd" accept="image/*" placeholder="Escolha a imagem">
+                              <label class="btn btn-primary btn-block btn-outlined" id="lbfoto" for="imagemProd">Escolha a imagem</label>
+                            </div>
+                        </div>
+                        <div id="prvata" class="row">
 
+                        </div>
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">Descricao</label>
                             <div class="col-md-6">

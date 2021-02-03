@@ -12,6 +12,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th scope="col" class="nome-col">Produto</th>
                                     <th scope="col" class="nome-col">Nome</th>
                                     <th scope="col" class="nome-col">Descrição</th>
                                     <th scope="col" class="nome-col">Disponibilidade</th>
@@ -23,6 +24,7 @@
                             <tbody>
                                 @foreach ($produtos as $prod)
                                 <tr>
+                                    <td class="nome_reuniao basic-space"><img src="{{asset('storage/' . $prod->imagem)}}" alt="" width="70px"> </td>
                                     <td class="nome_reuniao basic-space"><br>{{$prod->nome}}</td>
                                     <td class="nome_reuniao basic-space"><br>{{$prod->descricao}}</td>
                                     <td class="nome_reuniao basic-space"><br>{{$prod->isDisponivel()}}</td>

@@ -17,6 +17,7 @@ class CreateProdutosTable extends Migration
             $table->id();
             $table->string('nome');
             $table->text('descricao');
+            $table->longText('imagem');
             $table->boolean('disponivel');
             $table->double('preco');
             $table->unsignedBigInteger('vitrine_id');
