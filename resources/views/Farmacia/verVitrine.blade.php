@@ -35,6 +35,9 @@
                                     <td>
                                       <a class="btn edit-bt" href="{{route('farmacia.produto.editarDisponibilidadeProd', ['id' => $prod->id])}}">Mudar Disponibilidade</a>
                                     </td>
+                                    <td>
+                                      <a class="btn edit-bt" href="{{route('farmacia.produto.removerProduto', ['id' => $prod->id])}}">Excluir</a>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
