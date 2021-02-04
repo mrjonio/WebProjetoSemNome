@@ -17,7 +17,7 @@
                                     <th scope="col" class="nome-col">Descrição</th>
                                     <th scope="col" class="nome-col">Disponibilidade</th>
                                     <th scope="col" class="nome-col">Preço</th>
-                                    <th scope="col" class="nome-col" colspan="2">Ações</th>
+                                    <th scope="col" class="nome-col" colspan="3">Ações</th>
 
                                 </tr>
                             </thead>
@@ -30,13 +30,13 @@
                                     <td class="nome_reuniao basic-space"><br>{{$prod->isDisponivel()}}</td>
                                     <td class="nome_reuniao basic-space"><br>{{$prod->preco}}</td>
                                     <td id="coluna-images" class="basic-space">
-                                      <a class="btn edit-bt" href="{{route('farmacia.produto.editarProduto', ['id' => $prod->id])}}">Editar</a>
+                                      <button class="btn edit-bt"><a href="{{route('farmacia.produto.editarProduto', ['id' => $prod->id])}}">Editar</a></button>
                                     </td>
                                     <td>
-                                      <a class="btn edit-bt" href="{{route('farmacia.produto.editarDisponibilidadeProd', ['id' => $prod->id])}}">Mudar Disponibilidade</a>
+                                      <button class="btn edit-bt"><a href="{{route('farmacia.produto.editarDisponibilidadeProd', ['id' => $prod->id])}}">Mudar Disponibilidade</a></button>
                                     </td>
                                     <td>
-                                      <a class="btn edit-bt" href="{{route('farmacia.produto.removerProduto', ['id' => $prod->id])}}">Excluir</a>
+                                      <button style="background-color:red" class="btn edit-bt"><a href="{{route('farmacia.produto.removerProduto', ['id' => $prod->id])}}">Excluir</a></button>
                                     </td>
                                 </tr>
                                 @endforeach

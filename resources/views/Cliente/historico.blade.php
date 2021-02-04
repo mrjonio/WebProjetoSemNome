@@ -32,7 +32,7 @@
                                     <td class="nome_reuniao basic-space"><br>{{$pedido->produto->vitrine->farmacia->user->nome}}</td>
                                     <td class="nome_reuniao basic-space"><br>{{$pedido->isAtivo()}}</td>
                                     <td id="coluna-images" class="basic-space">
-                                      <a class="btn edit-bt" href="{{route('cliente.pedidos.cancelar', ['id' => $pedido->id])}}">Cancelar pedido</a>
+                                      <button style="background-color: red;" class="btn edit-bt"><a  href="{{route('cliente.pedidos.cancelar', ['id' => $pedido->id])}}">Cancelar pedido</a></button>
                                     </td>
                                 </tr>
                                 @endif

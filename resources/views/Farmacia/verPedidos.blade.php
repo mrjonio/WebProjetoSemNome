@@ -36,10 +36,10 @@
                                       <td class="nome_reuniao basic-space"><br>{{$pedido->produto->preco}}</td>
                                       <td class="nome_reuniao basic-space"><br><a href="{{route('farmacia.cliente', ['id' => $pedido->cliente->id])}}">{{$pedido->produto->vitrine->farmacia->user->nome}}</a></td>
                                       <td id="coluna-images" class="basic-space">
-                                        <a class="btn edit-bt" href="{{route('farmacia.pedidos.cancelar', ['id' => $pedido->id])}}">Cancelar pedido</a>
+                                        <button style="background-color:red" class="btn edit-bt"><a href="{{route('farmacia.pedidos.cancelar', ['id' => $pedido->id])}}">Cancelar pedido</a></button>
                                       </td>
                                       <td id="coluna-images" class="basic-space">
-                                        <a class="btn edit-bt" href="{{route('farmacia.pedidos.salvar', ['id' => $pedido->id])}}">Finalizar entrega</a>
+                                        <button class="btn edit-bt"><a href="{{route('farmacia.pedidos.salvar', ['id' => $pedido->id])}}">Finalizar entrega</a></button>
                                       </td>
                                   </tr>
                                   @endif

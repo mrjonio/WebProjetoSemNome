@@ -1,30 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 .bg-yellow{
   background-color: #999900;
+
+}
+
+body{
+  background-color: #efefff !important;
+  font-family: 'Roboto Condensed', sans-serif !important;
 }
 .bt-quadrado{
-  max-width: 200px;
+  max-width: 205px;
   max-height: 200px;
   color: black;
   font-weight: bold;
-  background-color: white;
+  background-color: #999900;
   font-size: 30px;
   border-style: solid;
-  border-width: 2px;
-  border-color: black;
+  border-width: 5px;
+  border-color: #660066;
   padding: 30px;
   margin-left: 30px;
   text-align: center;
 }
 
-.edit-bt{
-  width: 100px;
+
+.card-header{
+  background-color: #660066;
+  color: #ffffff !important;
+}
+
+.card-body{
+  background-color: #efefff;
+}
+
+.card{
   border-style: solid;
-  border-width: 1px;
-  border-color: black;
+  border-width: 3px;
+  border-color: #660066;
+  border-width: 5px;
+}
+.edit-bt{
+  width: 110px;
+  height: 80px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #660066;
   font-size: 13px;
   font-weight: bold;
-  background-color: yellow;
+  background-color: #009966;
   padding: 10px;
+}
+
+table{
+  border-style: solid;
+  border-width: 3px;
+  border-color: #660066;
+}
+
+tr{
+  border-style: solid;
+  border-width: 3px;
+  border-color: #660066;
 }
 
 .label-static {
@@ -41,12 +78,28 @@
     color: black;
 }
 
+.label-ntstatic-2 {
+    margin-top: 5px;
+    font-size: 16px;
+    margin-left: 5px;
+    font-weight: bold;
+    color: black;
+}
+
+.label-ntstatic-3 {
+    margin-top: 10px;
+    font-size: 16px;
+    margin-left: 5px;
+    font-weight: bold;
+    color: black;
+}
+
 .outliner{
     margin-top: -5px;
     border: none;
     height: 3px;
     color: #e9e9e9; /* old IE */
-    background-color: #e9e9e9;
+    background-color: #660066;
 }
 
 .outliner2{
@@ -74,9 +127,30 @@
     background-color: white;
     color: black;
     border-radius: 5px;
-    border: #e9e9e9 solid;
+    border: #660066 solid;
 }
 
+.dropdown-item{
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav{
+  border-style: solid;
+  border-width: 3px;
+  border-color: #660066;
+}
+
+.nav-link{
+  font-size: 20px;
+  color: white !important;
+  font-weight: bold;
+}
+
+.nav-link:hover{
+  color: purple !important;
+  font-weight: bold;
+}
 
 .final-bt{
   float: right;
@@ -84,10 +158,17 @@
   color: #ffffff;
   width: 200px;
   height: 50px;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: bold;
   border-radius: 10px;
+  border-style: solid;
+  border-color: #660066;
+  border-width: 5px;
 }
-
+.final-bt:hover{
+  background: purple;
+  color: white;
+}
 .spec-bt{
   float: right;
   background: #43CB75;
@@ -96,6 +177,9 @@
   height: 50px;
   font-size: 18px;
   border-radius: 10px;
+  border-style: solid;
+  border-color: #660066;
+  border-width: 3px;
 }
 
 #excluir-bt{
@@ -106,7 +190,7 @@
 
 a{
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 a:hover{

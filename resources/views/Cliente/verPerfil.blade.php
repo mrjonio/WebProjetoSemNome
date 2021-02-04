@@ -52,13 +52,8 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-              <br>
-              <br>
-                <div class="row">
-                  <div class="col-md-12">
-                      <h1 class="marker">Minhas informações</h1>
-                  </div>
-                </div>
+              <div class="card-header marker">Minhas informações</div>
+              <hr style="margin-top: -3px;" class="outliner2">
                 <div class="row">
                   <div class="col-md-6">
                       <button class="btn spec-bt" id="enable-bt">Editar</button>
@@ -67,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
                       <button class="btn spec-bt" id="excluir-bt"><a href="{{route('cliente.removerCliente')}}">Excluir perfil</a></button>
                   </div>
                 </div>
-                <hr class="outliner2">
+
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul style="padding: 0px;">
@@ -77,6 +72,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     </ul>
                 </div>
                 @endif
+                <hr style="margin-bottom: 1px;"class="outliner2">
+
                 <div class="card-body">
                     <form method="post" action="{{ route('cliente.editarCliente.salvar') }}">
                         @csrf

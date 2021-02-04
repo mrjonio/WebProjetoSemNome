@@ -45,12 +45,14 @@
                   <div class="row">
                     <div class="col-md-10">
                     </div>
+                    @if (count(session()->get('produtos')) > 0)
                     <div class="col-md-2">
                       <form method="post" action="{{ route('cliente.carrinho.salvar') }}">
                         @csrf
                         <button type="submit" class="btn final-bt">Finalizar compra</button>
                       </form>
                     </div>
+                    @endif
                   </div>
                 </div>
             </div>

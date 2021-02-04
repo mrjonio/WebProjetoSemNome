@@ -35,10 +35,14 @@ function myFunction() {
                 <div class="card-body">
                   <div class="form-row">
                     <div class="col-md-3">
+                        <label class="label-ntstatic-2">Digite o nome do produto:</label>
+                    </div>
+                    <div class="col-md-3">
                         <span class="fa fa-search form-control-feedback" id='search-icon'></span>
-                        <input type="text" class="form-control" placeholder="Nome do produto" id='searchbar' onkeyup="myFunction()">
+                        <input type="text" class="form-control input-stl" placeholder="Nome do produto" id='searchbar' onkeyup="myFunction()">
                     </div>
                   </div>
+                  <br>
                     <div class="form-row">
                         <table id="prodsID" class="table">
                             <thead>
@@ -48,7 +52,7 @@ function myFunction() {
                                     <th scope="col" class="nome-col">Descrição</th>
                                     <th scope="col" class="nome-col">Disponibilidade</th>
                                     <th scope="col" class="nome-col">Preço</th>
-                                    <th scope="col" class="nome-col" colspan="2">Ações</th>
+                                    <th scope="col" class="nome-col">Ações</th>
 
                                 </tr>
                             </thead>
@@ -63,7 +67,7 @@ function myFunction() {
                                     <td class="nome_reuniao basic-space"><br>{{$prod->isDisponivel()}}</td>
                                     <td class="nome_reuniao basic-space"><br>{{$prod->preco}}</td>
                                     <td id="coluna-images" class="basic-space">
-                                      <button class="btn edit-bt"><a  href="{{route('cliente.carrinho.addprod', ['produto_id' => $prod->id])}}">Adicionar ao carrinho</a></button>
+                                      <button class="btn edit-bt"><a href="{{route('cliente.carrinho.addprod', ['produto_id' => $prod->id])}}">Adicionar ao carrinho</a></button>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -73,8 +77,9 @@ function myFunction() {
                         </table>
                     </div>
                 </div>
+                <hr class="outliner">
 
-                <div class="card-header">Lista de Farmacias próximas</div>
+                <div class="card-header marker">Lista de Farmacias próximas</div>
 
                 <div class="card-body">
                     <div class="form-row">

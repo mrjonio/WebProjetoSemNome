@@ -62,10 +62,23 @@
                                 </li>
                             @endif
                         @else
+                        <li class="nav-item dropdown">
+                          <a class="dropdown-item" href="{{ route('home') }}">
+                              Home
+                          </a>
+                        </li>
+                        @if(Auth::user()->tipo_perfil == "Cliente")
+                        <li class="nav-item dropdown">
+                          <a class="dropdown-item" href="{{ route('cliente.carrinho') }}">
+                              Meu Carrinho
+                          </a>
+                        </li>
+                        @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
+
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -79,13 +92,7 @@
                                     </form>
                                 </div>
                             </li>
-                            @if(Auth::user()->tipo_perfil == "Cliente")
-                            <li class="nav-item dropdown">
-                              <a class="dropdown-item" href="{{ route('cliente.carrinho') }}">
-                                  Meu Carrinho
-                              </a>
-                            </li>
-                            @endif
+
                         @endguest
                     </ul>
                 </div>
@@ -95,7 +102,7 @@
         <main class="py-4">
           <br>
           <br>
-          <br>  
+          <br>
             @yield('content')
         </main>
     </div>

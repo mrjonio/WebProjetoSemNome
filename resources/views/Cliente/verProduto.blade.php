@@ -35,11 +35,11 @@
                         <input type="hidden" name="produto_id" value="{{$produto->id}}">
                       </div>
                       <div class="col-md-4">
-                        <label class="">Quantidade</label><br>
-                        <input type="number" name="quantidade">
+                        <label class="label-ntstatic">Quantidade:</label><br>
+                        <input type="number" class="input-stl"name="quantidade" value="1">
                       </div>
                       <div class="col-md-4">
-                        <button class="btn edit-bt" type="submit">Adicionar ao carrinho</button>
+                        <button style="height:100px;"class="btn final-bt" type="submit">Adicionar ao carrinho</button>
                       </div>
                     </div>
                   </form>
