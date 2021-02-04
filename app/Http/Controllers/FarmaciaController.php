@@ -161,6 +161,18 @@ class FarmaciaController extends Controller
       return redirect()->route('login');
     }
 
+    public function removerProduto($id) {
+      $this->authorize('farmacia', User::class);
+      $produto = Produto::find($id);
+      return view('Farmacia.removerProduto', ['produto' => $produto]);
+    }
+
+    public function salvarRemoverProduto($id){
+      $this->authorize('farmacia', User::class);
+      $produto = Produto::find($id);
+      $produto->delete();
+      return redirect()->route('farmacia.produto.listarProdutos');
+    }
 
     public function salvarCadastroFarmacia(Request $request) {
         $entrada = $request->all();
