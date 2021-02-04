@@ -30,7 +30,7 @@ function myFunction() {
         <div class="col-md-10">
 
             <div class="card">
-                <div class="card-header">Lista de produtos</div>
+                <div class="card-header marker">Lista de produtos</div>
 
                 <div class="card-body">
                   <div class="form-row">
@@ -63,10 +63,7 @@ function myFunction() {
                                     <td class="nome_reuniao basic-space"><br>{{$prod->isDisponivel()}}</td>
                                     <td class="nome_reuniao basic-space"><br>{{$prod->preco}}</td>
                                     <td id="coluna-images" class="basic-space">
-                                      <a class="btn edit-bt" href="{{route('farmacia.produto.editarProduto', ['id' => $prod->id])}}">Editar</a>
-                                    </td>
-                                    <td>
-                                      <a class="btn edit-bt" href="{{route('farmacia.produto.editarDisponibilidadeProd', ['id' => $prod->id])}}">Mudar Disponibilidade</a>
+                                      <button class="btn edit-bt"><a  href="{{route('cliente.carrinho.addprod', ['produto_id' => $prod->id])}}">Adicionar ao carrinho</a></button>
                                     </td>
                                 </tr>
                                 @endforeach

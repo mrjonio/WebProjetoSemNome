@@ -52,18 +52,22 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-              <div class="row">
-                  <div class="col-md-8">
-                  <div class="col-md-10">
+              <br>
+              <br>
+                <div class="row">
+                  <div class="col-md-12">
                       <h1 class="marker">Minhas informações</h1>
                   </div>
-                  <div class="col-md-2">
-                      <button class="btn edit-bt" id="enable-bt">Editar</button>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                      <button class="btn spec-bt" id="enable-bt">Editar</button>
                   </div>
-                  <div class="col-md-2">
-                      <a class="btn edit-bt" href="{{route('cliente.removerCliente')}}">Excluir perfil</a>
+                  <div class="col-md-6">
+                      <button class="btn spec-bt" id="excluir-bt"><a href="{{route('cliente.removerCliente')}}">Excluir perfil</a></button>
                   </div>
-                  </div>
+                </div>
+                <hr class="outliner2">
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul style="padding: 0px;">
@@ -79,13 +83,14 @@ document.addEventListener('DOMContentLoaded', function () {
                         <input type="hidden" name="id" value="{{ $user->id }}">
                         <div class="form-group row">
                           <div class="col-md-12">
-                            <h4><center>Informações Pessoais</center></h4>
+                            <h4  class="sub-marker"><center>Informações Pessoais</center></h4>
                           </div>
                         </div>
+                        <hr class="outliner">
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Nome</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right label-static">Nome</label>
                             <div class="col-md-6">
-                                <input disabled="true" id="nome" type="text" class="form-control @error('nome') is-invalid @enderror" name="nome" value="{{ old('nome', $user->nome) }}" required autocomplete="nome" autofocus>
+                                <input disabled="true" id="nome" type="text" class="form-control @error('nome') is-invalid @enderror input-stl" name="nome" value="{{ old('nome', $user->nome) }}" required autocomplete="nome" autofocus>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -95,9 +100,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Cpf</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right label-static">Cpf</label>
                             <div class="col-md-6">
-                                <input disabled="true" id="cpf" type="number" class="form-control @error('cpf') is-invalid @enderror" name="cpf" value="{{ old('cpf', $user->cliente->cpf) }}" required autocomplete="cpf" autofocus>
+                                <input disabled="true" id="cpf" type="number" class="form-control @error('cpf') is-invalid @enderror input-stl" name="cpf" value="{{ old('cpf', $user->cliente->cpf) }}" required autocomplete="cpf" autofocus>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -108,13 +113,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         <div class="form-group row">
                           <div class="col-md-12">
-                            <h4><center>Informações de acesso</center></h4>
+                            <h4  class="sub-marker"><center>Informações de acesso</center></h4>
                           </div>
                         </div>
+                        <hr class="outliner">
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right label-static">Email</label>
                             <div class="col-md-6">
-                                <input disabled="true" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}" required autocomplete="email">
+                                <input disabled="true" id="email" type="email" class="form-control @error('email') is-invalid @enderror input-stl" name="email" value="{{ old('email', $user->email) }}" required autocomplete="email">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -125,70 +131,70 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         <div class="form-group row">
                           <div class="col-md-12">
-                            <h4><center>Endereco</center></h4>
+                            <h4 class="sub-marker"><center>Endereco</center></h4>
                           </div>
                         </div>
-
+                        <hr class="outliner">
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Cidade</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static">Cidade</label>
 
                             <div class="col-md-6">
-                                <input disabled="true" id="cidade" type="text" class="form-control" name="cidade" value="{{ old('cidade', $user->endereco->cidade) }}" required autocomplete="cidade">
+                                <input disabled="true" id="cidade" type="text" class="form-control input-stl" name="cidade" value="{{ old('cidade', $user->endereco->cidade) }}" required autocomplete="cidade">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Estado</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static">Estado</label>
 
                             <div class="col-md-6">
-                                <input disabled="true" id="estado" type="text" class="form-control" name="estado" value="{{ old('estado', $user->endereco->estado) }}" required autocomplete="estado">
+                                <input disabled="true" id="estado" type="text" class="form-control input-stl" name="estado" value="{{ old('estado', $user->endereco->estado) }}" required autocomplete="estado">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Rua</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static">Rua</label>
 
                             <div class="col-md-6">
-                                <input disabled="true" id="rua" type="text" class="form-control" name="rua" value="{{ old('rua', $user->endereco->rua) }}" required autocomplete="rua">
+                                <input disabled="true" id="rua" type="text" class="form-control input-stl" name="rua" value="{{ old('rua', $user->endereco->rua) }}" required autocomplete="rua">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Bairro</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static">Bairro</label>
 
                             <div class="col-md-6">
-                                <input disabled="true" id="bairro" type="text" class="form-control" name="bairro" value="{{ old('bairro', $user->endereco->bairro) }}" required autocomplete="bairro">
+                                <input disabled="true" id="bairro" type="text" class="form-control input-stl" name="bairro" value="{{ old('bairro', $user->endereco->bairro) }}" required autocomplete="bairro">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Numero</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static">Numero</label>
 
                             <div class="col-md-6">
-                                <input disabled="true" id="numero" type="number" class="form-control" name="numero" value="{{ old('numero', $user->endereco->numero) }}" required autocomplete="numero">
+                                <input disabled="true" id="numero" type="number" class="form-control input-stl" name="numero" value="{{ old('numero', $user->endereco->numero) }}" required autocomplete="numero">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">CEP</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static">CEP</label><br>
 
                             <div class="col-md-6">
-                                <input disabled="true" id="cep" type="number" class="form-control" name="cep" value="{{ old('cep', $user->endereco->cep) }}">
+                                <input disabled="true" id="cep" type="number" class="form-control input-stl" name="cep" value="{{ old('cep', $user->endereco->cep) }}">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Complemento</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static" >Complemento</label>
 
                             <div class="col-md-6">
-                                <input disabled="true" id="complemento" type="text" class="form-control" name="complemento" value="{{ old('complemento', $user->endereco->complemento) }}">
+                                <input disabled="true" id="complemento" type="text" class="form-control input-stl" name="complemento" value="{{ old('complemento', $user->endereco->complemento) }}">
                             </div>
                         </div>
 
-
+                        <hr class="outliner">
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button disabled="true" type="submit" class="btn btn-primary">
+                                <button disabled="true" type="submit" class="btn btn-primary final-bt">
                                     Finalizar Edição
                                 </button>
                             </div>

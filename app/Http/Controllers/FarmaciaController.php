@@ -11,6 +11,8 @@ use App\Models\User;
 use App\Models\Vitrine;
 use App\Models\Endereco;
 use App\Models\Produto;
+use App\Models\Pedido;
+use App\Models\Cliente;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -25,6 +27,14 @@ class FarmaciaController extends Controller
     public function cadastrarFarmacia() {
       return view('Farmacia.cadastroFarmacia');
     }
+
+    public function verPedidos(){
+      $this->authorize('farmacia', User::class);
+      $user = Auth::user()->farmacia;
+      return view('Farmacia.verPedidos', ['farmacia' => $user]);
+    }
+
+
 
     public function cadastrarProduto(){
       $this->authorize('farmacia', User::class);
@@ -48,6 +58,43 @@ class FarmaciaController extends Controller
         'produtos' => $farmacia->vitrine->produto
       ]);
     }
+
+    public function finalizarPedidoFarmacia($id){
+      $this->authorize('farmacia', User::class);
+      $pedido = Pedido::find($id);
+      if($pedido){
+        if ($pedido->ativo){
+          $pedido->ativo = false;
+          $pedido->save();
+          return redirect()->route('farmacia.pedidos')->with('Sucesso', 'Pedido finalizado com sucesso!');
+        }
+      }
+      return redirect()->route('farmacia.pedidos')->withErrors('Pedido não encontrado, ou já finalizado!');
+
+    }
+    public function cancelarPedidoFarmacia($id){
+      $this->authorize('farmacia', User::class);
+      $pedido = Pedido::find($id);
+      if($pedido){
+        if ($pedido->ativo){
+          $pedido->delete();
+          return redirect()->back()->with('Sucesso', 'Pedido cancelado com sucesso!');
+        }
+      }
+      return redirect()->back()->withErrors('Pedido já finalizado!');
+    }
+
+    public function verCliente($id){
+      $this->authorize('farmacia', User::class);
+      $cliente = Cliente::find($id);
+      if($cliente){
+        return view('Farmacia.verPerfilCliente', [
+          'cliente' => $cliente
+        ]);
+      }
+      return redirect()->route('farmacia.pedidos')->withErrors('Cliente não encontrado!');
+    }
+
 
     public function salvarCadastrarProduto(Request $request) {
         $this->authorize('farmacia', User::class);

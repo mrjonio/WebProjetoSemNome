@@ -10,9 +10,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pedido extends Model
 {
-
+    public $timestamps = false;
     public function cliente() {
-        return $this->belongsTo('\App\Models\Cliente', 'id', 'cliente_id');
+        return $this->belongsTo('\App\Models\Cliente', 'cliente_id');
     }
 
     public function farmacia() {
@@ -20,7 +20,13 @@ class Pedido extends Model
     }
 
     public function produto() {
-        #// TODO: Adicionar o looping que vai pegar os ids dos produtos e retornar cada um da lista de pedidos
+        return $this->hasOne('\App\Models\Produto', 'id', 'produto_id');
     }
 
+    public function isAtivo(){
+      if($this->ativo){
+        return "Ativo";
+      }
+      return "Finalizado";
+    }
 }

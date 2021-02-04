@@ -44,6 +44,24 @@ Route::prefix('/cliente')->name('cliente')->namespace('Cliente')->group(function
       Route::get('/', [ClienteController::class, 'buscaNome'])->middleware('auth');
   });
 
+  Route::prefix('/carrinho')->name('.carrinho')->group(function () {
+      Route::get('/', [ClienteController::class, 'mostrarCarrinho'])->middleware('auth');
+      Route::get('/novo/{produto_id}', [ClienteController::class, 'verProduto'])->name('.addprod')->middleware('auth');
+      Route::post('/adicionar', [ClienteController::class, 'adicionarAoCarrinho'])->name('.adicionar')->middleware('auth');
+      Route::post('/remover/{produto_id}', [ClienteController::class, 'removerDoCarrinho'])->name('.remover')->middleware('auth');
+      Route::post('/finalizar', [ClienteController::class, 'finalizarPedido'])->name('.salvar')->middleware('auth');
+
+  });
+
+  Route::prefix('/pedidos')->name('.pedidos')->group(function () {
+      Route::get('/cancelar/{id}', [ClienteController::class, 'cancelarPedido'])->name('.cancelar')->middleware('auth');
+      Route::get('/', [ClienteController::class, 'historicoPedidos'])->middleware('auth');
+
+
+  });
+
+
+
 });
 
 Route::prefix('/farmacia')->name('farmacia')->namespace('Farmacia')->group(function(){
@@ -74,6 +92,16 @@ Route::prefix('/farmacia')->name('farmacia')->namespace('Farmacia')->group(funct
             });
 
     });
+
+    Route::prefix('/pedidos')->name('.pedidos')->group(function () {
+        Route::get('/', [FarmaciaController::class, 'verPedidos'])->middleware('auth');
+        Route::get('/{id}', [FarmaciaController::class, 'finalizarPedidoFarmacia'])->name('.salvar')->middleware('auth');
+        Route::get('/deletar/{id}', [FarmaciaController::class, 'cancelarPedidoFarmacia'])->name('.cancelar')->middleware('auth');
+
+    });
+    Route::prefix('/cliente')->name('.cliente')->group(function () {
+        Route::get('/{id}', [FarmaciaController::class, 'verCliente'])->middleware('auth');
+        });
 
     Route::prefix('/remover')->name('.removerFarmacia')->group(function () {
         Route::get('/', [FarmaciaController::class, 'removerFarmacia'])->middleware('auth');

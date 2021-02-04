@@ -37,4 +37,8 @@ class Produto extends Model
       return "Indisponivel";
     }
 
+    public function vitrine() {
+        return $this->belongsTo('\App\Models\Vitrine', 'vitrine_id');
+    }
+
 }

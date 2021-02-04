@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Endereco;
 use App\Models\Farmacia;
 use App\Models\Produto;
+use App\Models\Pedido;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -21,6 +22,105 @@ use Illuminate\Support\Facades\Validator;
 class ClienteController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function adicionarAoCarrinho(Request $request) {
+      $this->authorize('cliente', User::class);
+      if($request->session()->has('produtos')){
+        $carrinho = $request->session()->get('produtos');
+      } else {
+        $carrinho = array();
+      }
+      $id = $request->produto_id;
+      if(array_key_exists($id, $carrinho)){
+        $carrinho[$id]['quantidade'] += $request->quantidade;
+        $carrinho[$id]['subtotal'] += $carrinho[$id]['preco'] * $carrinho[$id]['quantidade'];
+      } else {
+        $dados = array();
+        $dados['quantidade'] = $request->quantidade;
+        $produto = Produto::find($id);
+        $dados['id'] = $produto->id;
+        $dados['nome'] = $produto->nome;
+        $dados['preco'] = $produto->preco;
+        $dados['descricao'] = $produto->descricao;
+        $dados['imagem'] = $produto->imagem;
+        $dados['farmacia_id'] = $produto->vitrine->farmacia_id;
+        $dados['subtotal'] = $produto->preco * $request->quantidade;
+        $carrinho[$id] = $dados;
+
+      }
+      $request->session()->put('produtos', $carrinho);
+      return redirect()->route('cliente.carrinho');
+    }
+
+    public function removerDoCarrinho(Request $request, $produto_id){
+      $this->authorize('cliente', User::class);
+      if($request->session()->has('produtos')){
+        $carrinho = $request->session()->get('produtos');
+      }
+
+      if(array_key_exists($produto_id, $carrinho)){
+        unset($carrinho[$produto_id]);
+      }
+      $request->session()->put('produtos', $carrinho);
+      return redirect()->route('cliente.carrinho');
+    }
+
+    public function mostrarCarrinho(Request $request){
+      $this->authorize('cliente', User::class);
+      if (!$request->session()->has('produtos')){
+        $carrinho = array();
+        $request->session()->put('produtos', $carrinho);
+      }
+      return view('Cliente.carrinho');
+    }
+
+    public function verProduto($produto_id){
+      $this->authorize('cliente', User::class);
+      $produto = Produto::find($produto_id);
+      if($produto){
+        return view('Cliente.verProduto', ['produto' => $produto]);
+      }
+      return redirect()->route('cliente.buscar')->withErrors('Produto não encontrado!');
+
+    }
+
+    public function historicoPedidos(){
+      $this->authorize('cliente', User::class);
+      $user = Auth::user()->cliente;
+      return view('Cliente.historico', ['cliente' => $user]);
+    }
+
+    public function cancelarPedido($id){
+      $this->authorize('cliente', User::class);
+      $produto = Pedido::find($id);
+      if($produto){
+        $produto->delete();
+      }
+      return redirect()->back()->with('Sucesso', 'Pedido cancelado com sucesso!');
+    }
+
+    public function finalizarPedido(Request $request){
+      $this->authorize('cliente', User::class);
+      if($request->session()->has('produtos')){
+        $carrinho = $request->session()->get('produtos');
+        $user = Auth::user()->cliente;
+        foreach ($carrinho as $prod) {
+          for ($i=0; $i < $prod['quantidade']; $i++) {
+            $pedido = new Pedido;
+            $pedido->produto_id = $prod['id'];
+            $pedido->cliente_id = $user->id;
+            $pedido->farmacia_id = $prod['farmacia_id'];
+            $pedido->ativo = true;
+            $pedido->save();
+          }
+        }
+        $carrinho = array();
+        $request->session()->put('produtos', $carrinho);
+        return redirect()->route('cliente.carrinho')->with('Sucesso', 'Compra finalizada com sucesso!');
+      } else {
+        return redirect()->route('cliente.carrinho')->withErrors('Carrinho vazio!');
+      }
+    }
 
     public function cadastrarCliente() {
       return view('Cliente.cadastroCliente');

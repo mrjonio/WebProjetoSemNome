@@ -1,0 +1,145 @@
+.bg-yellow{
+  background-color: #999900;
+}
+.bt-quadrado{
+  max-width: 200px;
+  max-height: 200px;
+  color: black;
+  font-weight: bold;
+  background-color: white;
+  font-size: 30px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  padding: 30px;
+  margin-left: 30px;
+  text-align: center;
+}
+
+.edit-bt{
+  width: 100px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  font-size: 13px;
+  font-weight: bold;
+  background-color: yellow;
+  padding: 10px;
+}
+
+.label-static {
+    font-size: 22px;
+    margin-left: 5px;
+    font-weight: bold;
+    color: #479718;
+}
+
+.label-ntstatic {
+    font-size: 16px;
+    margin-left: 5px;
+    font-weight: bold;
+    color: black;
+}
+
+.outliner{
+    margin-top: -5px;
+    border: none;
+    height: 3px;
+    color: #e9e9e9; /* old IE */
+    background-color: #e9e9e9;
+}
+
+.outliner2{
+    border: none;
+    height: 3px;
+    color: #479D44; /* old IE */
+    background-color: #479D44;
+}
+
+.marker{
+  font-size: 26px;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+
+.sub-marker{
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+
+.input-stl{
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    border: #e9e9e9 solid;
+}
+
+
+.final-bt{
+  float: right;
+  background: #43CB75;
+  color: #ffffff;
+  width: 200px;
+  height: 50px;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.spec-bt{
+  float: right;
+  background: #43CB75;
+  color: #ffffff;
+  width: 200px;
+  height: 50px;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+#excluir-bt{
+  background: red;
+  color: black;
+  float: left !important;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+a:hover{
+  text-decoration: none;
+  color: purple;
+}
+
+body{
+  background-color: white;
+}
+
+th{
+  background-color: #999900;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.prod{
+  border: solid 4px black;
+}
+
+td{
+  background-color: #BEBEBE;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+
+.home-cd{
+  border-style: none !important;
+}
+
+.grad{
+  background-image: linear-gradient(to bottom right, green, yellow);
+}

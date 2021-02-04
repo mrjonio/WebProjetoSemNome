@@ -14,7 +14,7 @@ class Vitrine extends Model
   public $timestamps = false;
 
     public function farmacia() {
-        return $this->belongsTo('\App\Models\Farmacia', 'id', 'farmacia_id');
+        return $this->belongsTo('\App\Models\Farmacia', 'farmacia_id');
     }
 
     public function produto() {
