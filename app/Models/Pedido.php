@@ -10,7 +10,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pedido extends Model
 {
+    use HasFactory;
     public $timestamps = false;
+    
     public function cliente() {
         return $this->belongsTo('\App\Models\Cliente', 'cliente_id');
     }

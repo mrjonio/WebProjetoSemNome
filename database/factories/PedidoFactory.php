@@ -2,18 +2,21 @@
 namespace Database\Factories;
 
 use App\Models\Farmacia;
+use App\Models\Cliente;
+use App\Models\Produto;
 use App\Models\User;
+use App\Models\Pedido;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class FarmaciaFactory extends Factory
+class PedidoFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Farmacia::class;
+    protected $model = Pedido::class;
 
     /**
      * Define the model's default state.
@@ -23,8 +26,10 @@ class FarmaciaFactory extends Factory
     public function definition()
     {
         return [
-            'cnpj' => $this->faker->unique()->randomElement(['123456789101254', '223456789105847', '222456789104845', '323456789108526', '423456789104011', '523456789108578', '623456789107897', '723456789109674', '923456789104532', '293456789103366', '223456789112244']),
-            'user_id' => User::factory()->create()->id,
+            'ativo' => $this->faker->randomElement([true, false]),
+            'cliente_id' => $this->faker->numberBetween(1, 10),
+            'farmacia_id' => $this->faker->numberBetween(1, 10),
+            'produto_id' => $this->faker->numberBetween(1, 30),
         ];
     }
 }

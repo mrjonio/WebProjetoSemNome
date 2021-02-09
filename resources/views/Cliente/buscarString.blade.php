@@ -27,19 +27,25 @@ function myFunction() {
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
 
             <div class="card">
                 <div class="card-header marker">Lista de produtos</div>
 
                 <div class="card-body">
-                  <div class="form-row">
-                    <div class="col-md-3">
-                        <label class="label-ntstatic-2">Digite o nome do produto:</label>
-                    </div>
-                    <div class="col-md-3">
+                  <div class="form-group row">
+                      <label class="col-md-4 col-form-label text-md-right label-static">Digite o nome do produto:</label>
+
+                      <div class="col-md-6">
                         <span class="fa fa-search form-control-feedback" id='search-icon'></span>
                         <input type="text" class="form-control input-stl" placeholder="Nome do produto" id='searchbar' onkeyup="myFunction()">
+                      </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-12">
+                      <button style="float: left"class="final-bt bt-tb"><img class="img-tb"src="{{asset('images/rounded-add-button.png')}}" alt=""></button>
+                      <br>
+                      <label class="label-static">Adicionar ao carrinho</label>
                     </div>
                   </div>
                   <br>
@@ -50,7 +56,6 @@ function myFunction() {
                                     <th scope="col" class="nome-col">Produto</th>
                                     <th scope="col" class="nome-col">Nome</th>
                                     <th scope="col" class="nome-col">Descrição</th>
-                                    <th scope="col" class="nome-col">Disponibilidade</th>
                                     <th scope="col" class="nome-col">Preço</th>
                                     <th scope="col" class="nome-col">Ações</th>
 
@@ -60,16 +65,17 @@ function myFunction() {
                               @foreach ($farmacias as $farmacia)
                               @if($farmacia->vitrine)
                                 @foreach ($farmacia->vitrine->produto as $prod)
+                                  @if($prod->disponivel)
                                 <tr>
                                     <td class="nome_reuniao basic-space"><img src="{{asset('storage/' . $prod->imagem)}}" alt="" width="70px"> </td>
                                     <td class="nome_reuniao basic-space"><br>{{$prod->nome}}</td>
                                     <td class="nome_reuniao basic-space"><br>{{$prod->descricao}}</td>
-                                    <td class="nome_reuniao basic-space"><br>{{$prod->isDisponivel()}}</td>
                                     <td class="nome_reuniao basic-space"><br>{{$prod->preco}}</td>
                                     <td id="coluna-images" class="basic-space">
-                                      <button class="btn edit-bt"><a href="{{route('cliente.carrinho.addprod', ['produto_id' => $prod->id])}}">Adicionar ao carrinho</a></button>
+                                      <button class="btn final-bt bt-tb"><a href="{{route('cliente.carrinho.addprod', ['produto_id' => $prod->id])}}"><img class="img-tb"src="{{asset('images/rounded-add-button.png')}}" alt=""></a></button>
                                     </td>
                                 </tr>
+                                @endif
                                 @endforeach
                                 @endif
                                 @endforeach

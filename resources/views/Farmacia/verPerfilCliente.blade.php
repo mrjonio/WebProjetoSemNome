@@ -11,13 +11,13 @@
 
                 <div style="margin-top: -13px;" class="card-body">
                         <input type="hidden" name="id" value="{{ $cliente->id }}">
-                        <hr class="outliner">
+
                         <div class="form-group row">
                           <div class="col-md-12">
                             <h4  class="sub-marker"><center>Informações Pessoais</center></h4>
                           </div>
                         </div>
-                        <hr class="outliner">
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right label-static">Nome</label>
                             <div class="col-md-6">
@@ -37,13 +37,13 @@
                               <label class="label-ntstatic-3">{{$cliente->user->email}}</label>
                             </div>
                         </div>
-                        <hr class="outliner">
+
                         <div class="form-group row">
                           <div class="col-md-12">
                             <h4 class="sub-marker"><center>Endereco</center></h4>
                           </div>
                         </div>
-                        <hr class="outliner">
+
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static">Cidade</label>
 
@@ -99,7 +99,7 @@
                               <label class="label-ntstatic-3">{{$cliente->user->endereco->complemento}}</label>
                             </div>
                         </div>
-                        <hr class="outliner">
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button class="btn btn-primary final-bt"><a href="{{route('farmacia.pedidos')}}">

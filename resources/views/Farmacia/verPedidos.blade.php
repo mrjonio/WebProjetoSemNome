@@ -15,6 +15,19 @@
                 @endif
 
                 <div class="card-body">
+                  <div class="form-row">
+                    <div class="col-md-4">
+                      <button style="float: left; background: red"class="final-bt bt-tb"><img class="img-tb"src="{{asset('images/minus-round-line.png')}}" alt=""></button>
+                      <br>
+                      <label class="label-static">Cancelar pedido</label>
+                    </div>
+                    <div class="col-md-4">
+                      <button style="float: left;"class="final-bt bt-tb"><img class="img-tb"src="{{asset('images/done.png')}}" alt=""></button>
+                      <br>
+                      <label class="label-static">Finalizar entrega</label>
+                    </div>
+                  </div>
+                  <br>
                     <div class="form-row">
                         <table class="table">
                             <thead>
@@ -34,12 +47,12 @@
                                       <td class="nome_reuniao basic-space"><br>{{$pedido->produto->nome}}</td>
                                       <td class="nome_reuniao basic-space"><br>{{$pedido->produto->descricao}}</td>
                                       <td class="nome_reuniao basic-space"><br>{{$pedido->produto->preco}}</td>
-                                      <td class="nome_reuniao basic-space"><br><a href="{{route('farmacia.cliente', ['id' => $pedido->cliente->id])}}">{{$pedido->produto->vitrine->farmacia->user->nome}}</a></td>
+                                      <td  style="color: red"class="nome_reuniao basic-space"><br><a href="{{route('farmacia.cliente', ['id' => $pedido->cliente->id])}}">{{$pedido->produto->vitrine->farmacia->user->nome}}</a></td>
                                       <td id="coluna-images" class="basic-space">
-                                        <button style="background-color:red" class="btn edit-bt"><a href="{{route('farmacia.pedidos.cancelar', ['id' => $pedido->id])}}">Cancelar pedido</a></button>
+                                        <button style="background-color:red" class="btn final-bt bt-tb"><a href="{{route('farmacia.pedidos.cancelar', ['id' => $pedido->id])}}"><img class="img-tb"src="{{asset('images/minus-round-line.png')}}" alt=""></a></button>
                                       </td>
                                       <td id="coluna-images" class="basic-space">
-                                        <button class="btn edit-bt"><a href="{{route('farmacia.pedidos.salvar', ['id' => $pedido->id])}}">Finalizar entrega</a></button>
+                                        <button class="btn final-bt bt-tb"><a href="{{route('farmacia.pedidos.salvar', ['id' => $pedido->id])}}"><img class="img-tb"src="{{asset('images/done.png')}}" alt=""></a></button>
                                       </td>
                                   </tr>
                                   @endif

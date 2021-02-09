@@ -3,11 +3,19 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header marker">Carrinho</div>
 
                 <div class="card-body">
+                  <div class="form-row">
+                    <div class="col-md-12">
+                      <button style="float: left; background: red"class="final-bt bt-tb"><img class="img-tb"src="{{asset('images/minus-round-line.png')}}" alt=""></button>
+                      <br>
+                      <label class="label-static">Remover do carrinho</label>
+                    </div>
+                  </div>
+                  <br>
                   <div class="form-row">
                       <table id="prodsID" class="table">
                           <thead>
@@ -33,7 +41,7 @@
                                   <td id="coluna-images" class="basic-space">
                                     <form method="post" action="{{ route('cliente.carrinho.remover', ['produto_id' => $prod['id']]) }}">
                                       @csrf
-                                    <button type="submit" class="btn edit-bt">Remover do carrinho</button>
+                                    <button type="submit" style="background:red" class="btn final-bt bt-tb"><img class="img-tb"src="{{asset('images/minus-round-line.png')}}" alt=""></button>
                                     </form>
                                   </td>
                               </tr>

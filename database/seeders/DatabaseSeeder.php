@@ -13,12 +13,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(EnderecoSeeder::class);
+        #$this->call(EnderecoSeeder::class);
         $this->call(VitrineSeeder::class);
         $this->call(ProdutoSeeder::class);
-        $this->call(UserSeeder::class);
-        $this->call(FarmaciaSeeder::class);
         $this->call(ClienteSeeder::class);
+        $this->call(PedidoSeeder::class);
 
 
         // \App\Models\User::factory(10)->create();

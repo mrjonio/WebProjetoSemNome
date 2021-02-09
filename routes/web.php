@@ -15,9 +15,7 @@ use App\Http\Controllers\Auth\LoginController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'log'])->name('home2');
 
 Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout']);
@@ -90,7 +88,7 @@ Route::prefix('/farmacia')->name('farmacia')->namespace('Farmacia')->group(funct
         Route::prefix('/mudar')->name('.editarDisponibilidadeProd')->group(function () {
             Route::get('/{id}', [FarmaciaController::class, 'editarDisponibilidadeProd'])->middleware('auth');
             });
-        
+
         Route::prefix('/remover')->name('.removerProduto')->group(function () {
             Route::get('/{id}', [FarmaciaController::class, 'removerProduto'])->middleware('auth');
             Route::get('/remover/{id}', [FarmaciaController::class, 'salvarRemoverProduto'])->name('.remover')->middleware('auth');

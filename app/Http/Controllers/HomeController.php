@@ -29,4 +29,8 @@ class HomeController extends Controller
           'perfil' => Auth::user()->tipo_perfil,
         ]);
     }
+
+    public function log(){
+        return redirect()->route('login');
+    }
 }

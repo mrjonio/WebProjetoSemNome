@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
               <div class="card-header marker">Minhas informações</div>
               <hr style="margin-top: -3px;" class="outliner2">
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <h4  class="sub-marker"><center>Informações Pessoais</center></h4>
                           </div>
                         </div>
-                        <hr class="outliner">
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right label-static">Nome</label>
                             <div class="col-md-6">
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <h4  class="sub-marker"><center>Informações de acesso</center></h4>
                           </div>
                         </div>
-                        <hr class="outliner">
+
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right label-static">Email</label>
                             <div class="col-md-6">
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <h4 class="sub-marker"><center>Endereco</center></h4>
                           </div>
                         </div>
-                        <hr class="outliner">
+
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static">Cidade</label>
 
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             </div>
                         </div>
 
-                        <hr class="outliner">
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button disabled="true" type="submit" class="btn btn-primary final-bt">

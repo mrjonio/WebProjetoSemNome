@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Vitrine;
+use App\Models\Farmacia;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class VitrineFactory extends Factory
@@ -22,6 +23,7 @@ class VitrineFactory extends Factory
     public function definition()
     {
         return [
+          'farmacia_id' => Farmacia::factory()->create()->id,
         ];
     }
 }

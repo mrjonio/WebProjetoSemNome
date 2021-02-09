@@ -9,6 +9,14 @@
                 <div class="card-header marker">Compras em aberto</div>
 
                 <div class="card-body">
+                  <div class="form-row">
+                    <div class="col-md-12">
+                      <button style="float: left; background: red"class="final-bt bt-tb"><img class="img-tb"src="{{asset('images/minus-round-line.png')}}" alt=""></button>
+                      <br>
+                      <label class="label-static">Cancelar compra</label>
+                    </div>
+                  </div>
+                  <br>
                     <div class="form-row">
                         <table id="prodsID" class="table">
                             <thead>
@@ -32,7 +40,7 @@
                                     <td class="nome_reuniao basic-space"><br>{{$pedido->produto->vitrine->farmacia->user->nome}}</td>
                                     <td class="nome_reuniao basic-space"><br>{{$pedido->isAtivo()}}</td>
                                     <td id="coluna-images" class="basic-space">
-                                      <button style="background-color: red;" class="btn edit-bt"><a  href="{{route('cliente.pedidos.cancelar', ['id' => $pedido->id])}}">Cancelar pedido</a></button>
+                                      <button style="background-color: red;" class="btn final-bt bt-tb"><a  href="{{route('cliente.pedidos.cancelar', ['id' => $pedido->id])}}"><img class="img-tb"src="{{asset('images/minus-round-line.png')}}" alt=""></a></button>
                                     </td>
                                 </tr>
                                 @endif

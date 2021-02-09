@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header marker">Registro Farmacia</div>
+                <div class="card-header marker">Cadastrar Farmácia</div>
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul style="padding: 0px;">
@@ -15,8 +15,7 @@
                     </ul>
                 </div>
                 @endif
-                <hr style="margin-top: -3px;" class="outliner2">
-                <div style="margin-top: -13px;" class="card-body">
+                <div class="card-body">
                     <form method="post" action="{{ route('farmacia.cadastrarFarmacia.salvar') }}">
                         @csrf
 
@@ -25,9 +24,9 @@
                             <h4 class="sub-marker"><center>Informações </center></h4>
                           </div>
                         </div>
-                        <hr class="outliner">
+
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right label-static">Nome</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right label-static required">Nome</label>
                             <div class="col-md-6">
                                 <input id="nome" type="text" class="form-control input-stl @error('nome') is-invalid @enderror" name="nome" value="{{ old('nome') }}" required autocomplete="nome" autofocus>
                                 @error('name')
@@ -39,7 +38,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right label-static">CNPJ</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right label-static required">CNPJ</label>
                             <div class="col-md-6">
                                 <input id="cnpj" type="number" class="form-control input-stl @error('cnpj') is-invalid @enderror" name="cnpj" value="{{ old('cnpj') }}" required autocomplete="cnpj" autofocus>
                                 @error('name')
@@ -49,15 +48,15 @@
                                 @enderror
                             </div>
                         </div>
-                        <hr class="outliner">
+
                         <div class="form-group row">
                           <div class="col-md-12">
                             <h4 class="sub-marker"><center>Informações de acesso</center></h4>
                           </div>
                         </div>
-                        <hr class="outliner">
+
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right label-static">Email</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right label-static required">Email</label>
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control input-stl @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                 @error('email')
@@ -69,7 +68,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right label-static">Senha</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right label-static required">Senha</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control input-stl @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -83,22 +82,22 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static">Confirmação de senha</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static required">Confirmação de senha</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control input-stl" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-                        <hr class="outliner">
+
                         <div class="form-group row">
                           <div class="col-md-12">
                             <h4 class="sub-marker"><center>Endereço</center></h4>
                           </div>
                         </div>
-                        <hr class="outliner">
+
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static">Cidade</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static required">Cidade</label>
 
                             <div class="col-md-6">
                                 <input id="cidade" type="text" class="form-control input-stl" name="cidade" value="{{ old('cidade') }}" required autocomplete="cidade">
@@ -106,7 +105,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static">Estado</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static required">Estado</label>
 
                             <div class="col-md-6">
                                 <input id="estado" type="text" class="form-control input-stl" name="estado" value="{{ old('estado') }}" required autocomplete="estado">
@@ -114,7 +113,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static">Rua</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static required">Rua</label>
 
                             <div class="col-md-6">
                                 <input id="rua" type="text" class="form-control input-stl" name="rua" value="{{ old('rua') }}" required autocomplete="rua">
@@ -122,7 +121,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static">Bairro</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static required">Bairro</label>
 
                             <div class="col-md-6">
                                 <input id="bairro" type="text" class="form-control input-stl" name="bairro" value="{{ old('bairro') }}" required autocomplete="bairro">
@@ -130,7 +129,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static">Numero</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right label-static required">Numero</label>
 
                             <div class="col-md-6">
                                 <input id="numero" type="number" class="form-control input-stl" name="numero" value="{{ old('numero') }}" required autocomplete="numero">
@@ -153,7 +152,7 @@
                             </div>
                         </div>
 
-                        <hr class="outliner">
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary final-bt">

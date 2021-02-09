@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 .bg-yellow{
-  background-color: #999900;
+  background-color: #EC4D37;
 
 }
 
 body{
-  background-color: #efefff !important;
+  background-color: #1D1B1B !important;
   font-family: 'Roboto Condensed', sans-serif !important;
 }
 .bt-quadrado{
@@ -14,31 +14,69 @@ body{
   max-height: 200px;
   color: black;
   font-weight: bold;
-  background-color: #999900;
+  background-color: #EC4D37;
   font-size: 30px;
-  border-style: solid;
-  border-width: 5px;
-  border-color: #660066;
   padding: 30px;
   margin-left: 30px;
   text-align: center;
+  border-style: solid;
+  border-width: 3px;
+  border-color:black;
+  border-right: none;
+}
+
+.img-bt{
+width: 120px;
+}
+
+.img-tb{
+width: 50px;
+}
+
+.bt-tb{
+  width: 80px !important;
+  height: 80px !important;
+}
+
+.label-home{
+  color: #EC4D37 !important;
+  font-weight: bold;
+  font-size: 36px;
+  text-align: center;
+  border-style: solid;
+  border-width: 3px;
+  border-color: black;
+  border-left: none;
+  padding-top: 55px;
+  padding-right: 30px;
+  padding-left: 190px;
+  padding-bottom: 68px;
+  margin-left: -205px;
+}
+
+.label-home:hover{
+  background-color: #EC4D37;
+  color: black!important;
+  margin-left: -213px
+}
+.bt-quadrado:hover{
+    background-color: blue;
 }
 
 
 .card-header{
-  background-color: #660066;
-  color: #ffffff !important;
+  background-color: #EC4D37;
 }
 
 .card-body{
-  background-color: #efefff;
+  background-color: white;
 }
 
 .card{
   border-style: solid;
   border-width: 3px;
-  border-color: #660066;
-  border-width: 5px;
+  border-color: #EC4D37;
+  border-width: 1px;
 }
 .edit-bt{
   width: 110px;
@@ -55,20 +93,20 @@ body{
 table{
   border-style: solid;
   border-width: 3px;
-  border-color: #660066;
+  border-color: black;
 }
 
 tr{
   border-style: solid;
   border-width: 3px;
-  border-color: #660066;
+  border-color: black;
 }
 
 .label-static {
     font-size: 22px;
     margin-left: 5px;
     font-weight: bold;
-    color: #479718;
+    color: #1D1B1B;
 }
 
 .label-ntstatic {
@@ -110,24 +148,39 @@ tr{
 }
 
 .marker{
-  font-size: 26px;
+  font-size: 40px;
   text-align: center;
   font-weight: bold;
-  color: black;
+  color: white !important;
 }
 
 .sub-marker{
   font-size: 24px;
   text-align: center;
   font-weight: bold;
-  color: black;
+  color: white;
+  background-color: #6a7fdb;
+  padding: 15px;
+  border-style: solid;
+  border-color: #1D1B1B;
+  border-width: 2px;
+
 }
+
+.required:after {
+    content:" *";
+    color: red;
+  }
 
 .input-stl{
     background-color: white;
     color: black;
-    border-radius: 5px;
-    border: #660066 solid;
+    font-size: 20px;
+    border: #1D1B1B solid 2px;
+}
+
+.input-stl:focus{
+  border: #EC4D37 solid 2px;
 }
 
 .dropdown-item{
@@ -160,18 +213,15 @@ nav{
   height: 50px;
   font-size: 20px;
   font-weight: bold;
-  border-radius: 10px;
-  border-style: solid;
-  border-color: #660066;
-  border-width: 5px;
 }
 .final-bt:hover{
-  background: purple;
+  background: #EC4D37;
   color: white;
 }
 .spec-bt{
   float: right;
   background: #43CB75;
+  font-weight: bold;
   color: #ffffff;
   width: 200px;
   height: 50px;
@@ -182,20 +232,25 @@ nav{
   border-width: 3px;
 }
 
+.spec-bt:hover{
+  background: blue;
+  color: white;
+}
+
 #excluir-bt{
   background: red;
-  color: black;
+  color: white;
   float: left !important;
 }
 
 a{
   text-decoration: none;
-  color: white;
+  color: inherit;
 }
 
 a:hover{
   text-decoration: none;
-  color: purple;
+  color: black;
 }
 
 body{
@@ -203,20 +258,24 @@ body{
 }
 
 th{
-  background-color: #999900;
+  background-color: #EC4D37;
   color: white;
   font-weight: bold;
+  text-align: center;
+  padding: 100px;
+  font-size: 24px;
   text-align: center;
 }
 
 .prod{
-  border: solid 4px black;
+  border: solid 4px red;
 }
 
 td{
-  background-color: #BEBEBE;
+  background-color: #cccccc;
   color: black;
   font-weight: bold;
+  font-size: 20px;
   text-align: center;
 }
 

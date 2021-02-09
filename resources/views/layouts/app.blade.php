@@ -24,9 +24,9 @@
 
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm bg-yellow" >
-          <a class="navbar-brand" href="{{ route('home') }}">
+          <a class="navbar-brand" style="color:white; font-size: 30px; font-weight: bold;" href="{{ route('home') }}">
 
-              <img src="https://i.ibb.co/xm1z3nC/image.png" alt="" width="150px">
+              <img src="{{asset('images/bane.png')}}" alt="" width="80px"> Pharma Senior
           </a>
             <div class="container">
 
@@ -62,14 +62,14 @@
                                 </li>
                             @endif
                         @else
-                        <li class="nav-item dropdown">
-                          <a class="dropdown-item" href="{{ route('home') }}">
+                        <li class="nav-item">
+                          <a class="nav-link" href="{{ route('home') }}">
                               Home
                           </a>
                         </li>
                         @if(Auth::user()->tipo_perfil == "Cliente")
-                        <li class="nav-item dropdown">
-                          <a class="dropdown-item" href="{{ route('cliente.carrinho') }}">
+                        <li class="nav-item">
+                          <a class="nav-link" href="{{ route('cliente.carrinho') }}">
                               Meu Carrinho
                           </a>
                         </li>
