@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+
 </script>
 
 @section('content')

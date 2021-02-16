@@ -58,6 +58,10 @@ Route::prefix('/cliente')->name('cliente')->namespace('Cliente')->group(function
 
   });
 
+  Route::prefix('/farmacia')->name('.farmacia')->group(function () {
+      Route::get('/{id}', [ClienteController::class, 'verFarmacia'])->middleware('auth');
+      });
+
 
 
 });

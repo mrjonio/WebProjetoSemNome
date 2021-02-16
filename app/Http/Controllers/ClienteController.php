@@ -84,6 +84,18 @@ class ClienteController extends Controller
 
     }
 
+    public function verFarmacia($id){
+      $this->authorize('cliente', User::class);
+      $farmacia = Farmacia::find($id);
+      if($farmacia){
+        return view('Cliente.detalhesPedido', [
+          'farmacia' => $farmacia,
+          'cliente' => Auth::user()->cliente,
+        ]);
+      }
+      return redirect()->route('cliente.pedidos')->withErrors('Farmacia não encontrada!');
+    }
+
     public function historicoPedidos(){
       $this->authorize('cliente', User::class);
       $user = Auth::user()->cliente;

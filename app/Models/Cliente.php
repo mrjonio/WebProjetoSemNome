@@ -29,6 +29,26 @@ class Cliente extends Model
       return $this->hasMany('\App\Models\Pedido');
     }
 
+    public function farmaciasPedido(){
+      $pedidos = Pedido::where('cliente_id', '=', $this->id)->get();
+      $temp = array();
+      foreach ($pedidos as $ped) {
+        if ($ped->ativo){
+          if(!array_key_exists($ped->farmacia_id, $temp)){
+            $temp[$ped->farmacia_id] = $ped->farmacia_id;
+          }
+        }
+      }
+      $farmacias = array();
+      foreach ($temp as $farmacia) {
+        $farm = Farmacia::find($farmacia);
+        if(!array_key_exists($farm->id, $farmacias)){
+          $farmacias[$farm->id] = $farm;
+        }
+      }
+      return $farmacias;
+    }
+
     public static $regras_validacao_criar = [
         'cpf' => 'required|max:11|min:11|unique:clientes,cpf',
     ];

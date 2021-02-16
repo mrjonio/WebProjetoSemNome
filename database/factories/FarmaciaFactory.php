@@ -23,7 +23,7 @@ class FarmaciaFactory extends Factory
     public function definition()
     {
         return [
-            'cnpj' => $this->faker->unique()->randomElement(['123456789101254', '223456789105847', '222456789104845', '323456789108526', '423456789104011', '523456789108578', '623456789107897', '723456789109674', '923456789104532', '293456789103366', '223456789112244']),
+            'cnpj' => $this->faker->unique()->numerify('##############'),
             'user_id' => User::factory()->create()->id,
         ];
     }

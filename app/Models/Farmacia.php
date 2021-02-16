@@ -30,7 +30,23 @@ class Farmacia extends Model
     }
 
     public function pedido(){
-      return $this->hasMany('\App\Models\Pedido');
+      $pedidos = Pedido::where('farmacia_id', '=', $this->id)->get();
+      $temp = array();
+      foreach ($pedidos as $ped) {
+        if ($ped->ativo){
+          if(!array_key_exists($ped->cliente_id, $temp)){
+            $temp[$ped->cliente_id] = $ped->cliente_id;
+          }
+        }
+      }
+      $clientes = array();
+      foreach ($temp as $cliente) {
+        $cli = Cliente::find($cliente);
+        if(!array_key_exists($cli->id, $clientes)){
+          $clientes[$cli->id] = $cli;
+        }
+      }
+      return $clientes;
     }
 
     public function vitrine() {

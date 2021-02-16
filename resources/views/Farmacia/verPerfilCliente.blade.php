@@ -4,13 +4,71 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header marker">Perfil do cliente</div>
+                @if (\Session::has('Sucesso'))
+                <div class="alert alert-success">
+                  <ul>
+                    <li>{!! \Session::get('Sucesso') !!}</li>
+                  </ul>
+                </div>
+                @endif
                 <hr style="margin-top: -3px;" class="outliner2">
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <h4  class="sub-marker"><center>Pedidos do cliente</center></h4>
+                  </div>
+                </div>
 
                 <div style="margin-top: -13px;" class="card-body">
                         <input type="hidden" name="id" value="{{ $cliente->id }}">
+                        <div class="form-row">
+                          <div class="col-md-4">
+                            <button style="float: left; background: red"class="final-bt bt-tb"><img class="img-tb"src="{{asset('images/minus-round-line.png')}}" alt=""></button>
+                            <br>
+                            <label class="label-static">Cancelar pedido</label>
+                          </div>
+                          <div class="col-md-4">
+                            <button style="float: left;"class="final-bt bt-tb"><img class="img-tb"src="{{asset('images/done.png')}}" alt=""></button>
+                            <br>
+                            <label class="label-static">Finalizar entrega</label>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="form-row">
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                      <th scope="col" class="nome-col">Nome</th>
+                                      <th scope="col" class="nome-col">Descrição</th>
+                                      <th scope="col" class="nome-col">Preço</th>
+                                      <th scope="col" class="nome-col" colspan="2">Ações</th>
+
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($cliente->pedido as $pedido)
+                                    @if($pedido->ativo)
+                                    @if($pedido->farmacia_id == $id_farm)
+                                      <tr>
+                                          <td class="nome_reuniao basic-space"><br>{{$pedido->produto->nome}}</a></td>
+                                          <td class="nome_reuniao basic-space"><br>{{$pedido->produto->descricao}}</td>
+                                          <td class="nome_reuniao basic-space"><br>{{$pedido->produto->preco}}</td>
+                                          <td id="coluna-images" class="basic-space">
+                                            <button style="background-color:red" class="btn final-bt bt-tb"><a href="{{route('farmacia.pedidos.cancelar', ['id' => $pedido->id])}}"><img class="img-tb"src="{{asset('images/minus-round-line.png')}}" alt=""></a></button>
+                                          </td>
+                                          <td id="coluna-images" class="basic-space">
+                                            <button class="btn final-bt bt-tb"><a href="{{route('farmacia.pedidos.salvar', ['id' => $pedido->id])}}"><img class="img-tb"src="{{asset('images/done.png')}}" alt=""></a></button>
+                                          </td>
+
+                                      </tr>
+                                      @endif
+                                      @endif
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
 
                         <div class="form-group row">
                           <div class="col-md-12">

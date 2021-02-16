@@ -66,7 +66,7 @@ class FarmaciaController extends Controller
         if ($pedido->ativo){
           $pedido->ativo = false;
           $pedido->save();
-          return redirect()->route('farmacia.pedidos')->with('Sucesso', 'Pedido finalizado com sucesso!');
+          return redirect()->back()->with('Sucesso', 'Pedido finalizado com sucesso!');
         }
       }
       return redirect()->route('farmacia.pedidos')->withErrors('Pedido não encontrado, ou já finalizado!');
@@ -89,7 +89,8 @@ class FarmaciaController extends Controller
       $cliente = Cliente::find($id);
       if($cliente){
         return view('Farmacia.verPerfilCliente', [
-          'cliente' => $cliente
+          'cliente' => $cliente,
+          'id_farm' => Auth::user()->farmacia->id,
         ]);
       }
       return redirect()->route('farmacia.pedidos')->withErrors('Cliente não encontrado!');

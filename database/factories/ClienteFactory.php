@@ -23,7 +23,7 @@ class ClienteFactory extends Factory
     public function definition()
     {
         return [
-          'cpf' => $this->faker->unique()->randomElement(['12345678910', '22345678910', '22245678910', '32345678910', '42345678910', '52345678910', '62345678910', '72345678910', '92345678910', '29345678910', '22345678911']),
+          'cpf' => $this->faker->unique()->numerify('###########'),
           'user_id' => User::factory()->create()->id,
         ];
     }
