@@ -27,7 +27,7 @@ class PedidoFactory extends Factory
     {
         return [
             'ativo' => $this->faker->randomElement([true, false]),
-            'cliente_id' => $this->faker->numberBetween(1, 10),
+            'cliente_id' => $this->faker->numberBetween(1, 9),
             'farmacia_id' => $this->faker->numberBetween(1, 10),
             'produto_id' => $this->faker->numberBetween(1, 30),
         ];
